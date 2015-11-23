@@ -200,7 +200,7 @@ color: rgb(2,89,73);
 /*************************
 -----   PANTALLA ESCANEO
 *************************/
-p.botonEscaneo, p.botonValidar{
+p.botonEscaneo, p.botonValidar, p.botonFinalizar{
 width:200px;
 color:white;
 background-color:#004996;
@@ -211,8 +211,8 @@ text-shadow:none;
 text-align:center;
 border-radius:10px;
 }
-p.botonValidar{
-width:350px;
+p.botonValidar, p.botonFinalizar{
+width:300px;
 background-color:green!important;
 }
 
