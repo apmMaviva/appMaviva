@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+		<!-- APAZ: para evitar doble flick he cambiado initial-scale=1 por  -->
+        <meta name="viewport" content="user-scalable=no, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="swiper/dist/css/swiper.min.css" />
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+
+        <script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="swiper/dist/js/swiper.min.js"></script>
+		
+        <title>Maviva</title>
+	
+    </head>
+    <body>
+
+<!-- Panel de carga -->
+		<div data-role="page" id="pantalla1" class="pantalla">
+			<div data-role="content">
+				<div class="loader">	
+					<i class="fa fa-cog"></i>
+					<h3>Cargando...</h3>
+				</div>
+			</div>
+		</div>				
+
+<!-- Panel de presentacion de segundo nivel-->
+		<div data-role="page" id="pantalla2" class="pantalla">
+
+			<div data-role="header" data-theme="b" id="header">
+				<h1 class="completo" id="titulo-principal">MAVIVA</h1>
+			</div>
+			
+			<div data-role="content" id="menu-principal">
+				<div class="boton-entrada" onclick="cambiarSeccion('pantalla3',null,null,null);"><div class="estilo-boton-principal" style="background-color: #fbb700;"><i class="fa fa-truck"></i><p>S&Iacute;NCRONOS</p></div></div>	
+			</div>
+
+		</div>			
+
+<!-- Panel de presentacion de tercer nivel: SINCRONOS-->
+		<div data-role="page" id="pantalla3" class="pantalla">
+
+			<div data-role="header" data-theme="b" id="header">
+				<h1 class="completo" id="titulo-principal">ESCANEAR CODIGO</h1>
+			</div>
+			
+			<div data-role="content" id="menu-principal">
+				<p>A continuaci&oacute;n debe escanear el c&oacute;digo del carro...</p>
+				<p class="botonEscaneo" onclick="scan();">ESCANEAR</p>
+				
+			</div>
+
+		</div>	
+		
+		
+		<!-- Transiciones de pantalla -->
+
+        <script type="text/javascript">
+				
+			document.addEventListener("deviceready", onDeviceReady, false);
+				
+			document.addEventListener("backbutton", onBackKeyDown, false);
+			
+			function onDeviceReady() {
+				alert(window.innerWidth + ' x ' + window.innerHeight);
+				$.mobile.changePage("#pantalla2", { transition: "slide", reverse: false });
+			}
+
+			function cambiarSeccion(midiv,tipo,subtipo,nid) {
+				p_tipo = tipo;
+				p_subtipo = subtipo;
+				p_nid = nid;
+				$.mobile.changePage("#" + midiv, { transition: "slide", reverse: false });
+
+			}
+
+			function cambiarSeccionReversa(midiv) {
+				$.mobile.changePage("#" + midiv, { transition: "slide", reverse: true });
+			}
+			
+			function onBackKeyDown() {
+				history.go(-1);
+			}
+			
+			function CerrarApp(index) {
+				if (index == 1) {
+					navigator.app.exitApp();
+				}	
+			}		
+
+
+			function scan() {
+				alert("pulso escaneo");
+				var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+
+				scanner.scan( function (result) { 
+
+						alert("We got a barcode\n" + 
+						"Result: " + result.text + "\n" + 
+						"Format: " + result.format + "\n" + 
+						"Cancelled: " + result.cancelled);  
+
+					   console.log("Scanner result: \n" +
+							"text: " + result.text + "\n" +
+							"format: " + result.format + "\n" +
+							"cancelled: " + result.cancelled + "\n");
+						document.getElementById("info").innerHTML = result.text;
+						console.log(result);
+						/*
+						if (args.format == "QR_CODE") {
+							window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
+						}
+						*/
+
+					}, function (error) { 
+						console.log("Scanning failed: ", error); 
+					} );			
+			
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>		
+
+	
+    </body>
+</html>

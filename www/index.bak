@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+		<!-- APAZ: para evitar doble flick he cambiado initial-scale=1 por  -->
+        <meta name="viewport" content="user-scalable=no, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="swiper/dist/css/swiper.min.css" />
+		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+
+        <script type="text/javascript" src="cordova.js"></script>
+		<script type="text/javascript" src="swiper/dist/js/swiper.min.js"></script>
+		
+        <title>Maviva</title>
+	
+    </head>
+    <body>
+
+<!-- Panel de carga -->
+		<div data-role="page" id="pantalla1" class="pantalla">
+			<div data-role="content">
+				<div class="img-fecimo">	
+					<img src="img/viveomorrazo.png">
+				</div>				
+				<div class="loader">	
+					<i class="fa fa-cog"></i>
+					<h3>Cargando...</h3>
+				</div>
+				<div class="img-concellos">	
+					<div class="cuadro-img-concello"><img src="img/fecimo.png"></div><!--
+				 --><div class="cuadro-img-concello"><img src="img/bueu.png"></div><!--
+				 --><div class="cuadro-img-concello"><img src="img/cangas.png"></div><!--
+				 --><div class="cuadro-img-concello"><img src="img/moana.png"></div>
+				</div>
+			</div>
+		</div>				
+
+		
+<!-- Panel de presentacion -->
+		<div data-role="page" id="pantalla2" class="pantalla">
+
+			<div data-role="header" data-theme="b" id="header">
+				<h1 class="completo" id="titulo-principal">Vive o Morrazo</h1>
+			</div>
+			
+			<div data-role="content" id="menu-principal">
+		<div class="boton-entrada" onclick="cambiarpagina('pantalla2','mapa.html');"><div class="img-ent"><img src="img/mapa.png"></div></div><!--
+	 --><div class="boton-entrada" onclick="cambiarSeccion('pantallaB',null,null,null);"><div class="img-ent"><img src="img/axenda.png"></div></div><!--	
+	 --><div class="boton-entrada" onclick="cambiarSeccion('pantalla3',null,null,null);"><div class="img-ent"><img src="img/patrimonio.png"></div></div><!--
+	 --><div class="boton-entrada" onclick="cambiarSeccion('pantalla6',null,null,null);"><div class="img-ent"><img src="img/natureza.png"></div></div><!--
+	 --><div class="boton-entrada" onclick="cambiarSeccion('pantalla8',null,null,null);"><div class="img-ent"><img src="img/roteiros.png"></div></div><!--
+	 --><div class="boton-entrada" onclick="cambiarSeccion('pantalla5',null,null,null);"><div class="img-ent"><img src="img/gastronomia.png"></div></div><!--
+	 --><div class="boton-entrada" onclick="cambiarSeccion('pantalla4',null,null,null);"><div class="img-ent"><img src="img/aloxamento.png"></div></div><!--
+	 --><div class="boton-entrada" onclick="cambiarSeccion('pantalla7',null,null,null);"><div class="img-ent"><img src="img/compra.png"></div></div><!--
+	 --><div class="boton-entrada" onclick="cambiarSeccion('pantalla9',null,null,null);"><div class="img-ent"><img src="img/directorio.png"></div></div><!--
+	 --><div class="boton-entrada" onclick="cambiarSeccion('pantallaA',null,null,null);"><div class="img-ent"><img src="img/como-chegar.png"></div></div>
+			</div>
+
+		</div>	
+
+<!-- Panel de PATRIMONIO -->
+		<div data-role="page" id="pantalla3" class="pantalla">
+
+			<div data-role="header" data-theme="b" id="header">
+				<i class="separador fa fa-chevron-left fa-2x" onclick="onBackKeyDown();"></i>
+				<h1 style="width:80%;margin:0 auto;" class="ui-title">PATRIMONIO</h1>
+			</div>
+			
+			<div data-role="content" id="menu-principal">
+				<div class="elemento-completo" onclick="cambiarSeccion('pantalla10','F',136,null);">
+					<img src="img/tipo-relixioso.jpg">
+				</div>
+				<div class="elemento-completo" onclick="cambiarSeccion('pantalla10','F',110,null);">
+					<img src="img/tipo-civil.jpg">
+				</div>
+				<div class="elemento-completo" onclick="cambiarSeccion('pantalla10','F',111,null);">
+					<img src="img/tipo-etnografico.jpg">
+				</div>
+				<div class="elemento-completo" onclick="cambiarSeccion('pantalla10','F',137,null);">
+					<img src="img/tipo-marinero.jpg">
+				</div>
+				<div class="elemento-completo" onclick="cambiarSeccion('pantalla10','F',135,null);">
+					<img src="img/tipo-antiguidad.jpg">
+				</div>
+				<div class="elemento-completo" onclick="cambiarSeccion('pantalla10','F',114,null);">
+					<img src="img/tipo-museo.jpg">
+				</div>				
+				<div id="transitorio" class="oculto"><div class="loader"><i class="fa fa-cog fa-4x"></i><h3>Cargando...</h3></div></div>
+			</div>
+					
+		</div>
+
+<!-- Panel de ALOJAMIENTOS -->
+		<div data-role="page" id="pantalla4" class="pantalla">
+
+			<div data-role="header" data-theme="b" id="header">
+				<i class="separador fa fa-chevron-left fa-2x" onclick="onBackKeyDown();"></i>
+				<h1 style="width:80%;margin:0 auto;" class="ui-title">ALOXAMENTO</h1>
+			</div>
+			
+			<div data-role="content" id="menu-principal">
+				<div class="elemento-completo" onclick="cambiarSeccion('pantalla10','B',123,null);">
+					<img src="img/tipo-hoteles.jpg">
+				</div>
+				<div class="elemento-completo" onclick="cambiarSeccion('pantalla10','B',124,null);">
+					<img src="img/tipo-apartamento.jpg">
+				</div>
+				<div class="elemento-completo" onclick="cambiarSeccion('pantalla10','B',125,null);">
+					<img src="img/tipo-casarural.jpg">
+				</div>
+				<div class="elemento-completo" onclick="cambiarSeccion('pantalla10','B',139,null);">
+					<img src="img/tipo-camping.jpg">
+				</div>
+				<div id="transitorio" class="oculto"><div class="loader"><i class="fa fa-cog fa-4x"></i><h3>Cargando...</h3></div></div>
+			</div>
+					
+		</div>	
+
+<!-- Panel de GASTRONOMIA -->
+		<div data-role="page" id="pantalla5" class="pantalla">
+
+			<div data-role="header" data-theme="b" id="header">
+				<i class="separador fa fa-chevron-left fa-2x" onclick="onBackKeyDown();"></i>
+				<h1 style="width:80%;margin:0 auto;" class="ui-title">GASTRONOMÍA</h1>
+			</div>
+			
+			<div data-role="content" id="menu-principal">
+				<div class="elemento-completo" onclick="cambiarSeccion('pantalla10','A',120,null);">
+					<img src="img/tipo-restaurante.jpg">
+				</div>
+				<div class="elemento-completo" onclick="cambiarSeccion('pantalla10','A',121,null);">
+					<img src="img/tipo-taperia.jpg">
+				</div>
+				<div class="elemento-completo" onclick="cambiarSeccion('pantalla10','A',122,null);">
+					<img src="img/tipo-cafeteria.jpg">
+				</div>
+				<div id="transitorio" class="oculto"><div class="loader"><i class="fa fa-cog fa-4x"></i><h3>Cargando...</h3></div></div>
+			</div>
+					
+		</div>			
+
+<!-- Panel de NATURALEZA -->
+		<div data-role="page" id="pantalla6" class="pantalla">
+
+			<div data-role="header" data-theme="b" id="header">
+				<i class="separador fa fa-chevron-left fa-2x" onclick="onBackKeyDown();"></i>
+				<h1 style="width:80%;margin:0 auto;" class="ui-title">NATUREZA</h1>
+			</div>
+			
+			<div data-role="content" id="menu-principal">
+				<div class="elemento-completo" onclick="cambiarSeccion('pantalla10','C',117,null);">
+					<img src="img/tipo-playa.jpg">
+				</div>
+				<div class="elemento-completo" onclick="cambiarSeccion('pantalla10','C',115,null);">
+					<img src="img/tipo-jardin.jpg">
+				</div>
+				<div class="elemento-completo" onclick="cambiarSeccion('pantalla10','C',116,null);">
+					<img src="img/tipo-espacio.jpg">
+				</div>
+				<div id="transitorio" class="oculto"><div class="loader"><i class="fa fa-cog fa-4x"></i><h3>Cargando...</h3></div></div>
+			</div>
+					
+		</div>			
+
+<!-- Panel de COMPRA NO MORRAZO -->
+		<div data-role="page" id="pantalla7" class="pantalla">
+
+			<div data-role="header" data-theme="b" id="header">
+				<i class="separador fa fa-chevron-left fa-2x" onclick="onBackKeyDown();"></i>
+				<h1 style="width:80%;margin:0 auto;">COMPRA NO MORRAZO</h1>
+			</div>
+			
+			<div data-role="content" id="menu-principal">
+				<div class="elemento-completo" onclick="navigator.app.loadUrl('http://compranomorrazo.com/lista-de-concursos', { openExternal:true });return false;">
+					<img src="img/concursos.png">
+				</div>
+				<div class="elemento-completo" onclick="navigator.app.loadUrl('http://compranomorrazo.com/lista-de-descontos', { openExternal:true });return false;">
+					<img src="img/aforra.png">
+				</div>
+				<div class="elemento-completo" onclick="cambiarpagina('pantalla7','mapa.html?modo=compra');">
+					<img src="img/empresas.png">
+				</div>
+				<div id="transitorio" class="oculto"><div class="loader"><i class="fa fa-cog fa-4x"></i><h3>Cargando...</h3></div></div>
+			</div>
+					
+		</div>
+
+<!-- Panel de ROTEIROS -->		
+		<div data-role="page" id="pantalla8" class="pantalla">
+
+			<div data-role="header" data-theme="b" id="header">
+				<i class="separador fa fa-chevron-left fa-2x" onclick="onBackKeyDown();"></i>
+				<h1 style="width:80%;margin:0 auto;">ROTEIROS</h1>
+			</div>
+			
+			<div data-role="content" data-theme="a" class="ui-content" style="padding:0px;">
+				<div id="cargando3">
+					<!--<div class="marcador-cargando"><img src="img/cargando.gif"></div>-->
+					<div class="marcador-cargando"><i class="fa fa-cog"></i><h3>Cargando...</h3></div>
+				</div>
+				
+				<div id="reemplaza-listado2">
+					&nbsp;
+				</div>
+				
+			</div>
+				
+		</div>		
+
+<!-- Panel de DIRECTORIO -->		
+		<div data-role="page" id="pantalla9" class="pantalla">
+
+			<div data-role="header" data-theme="b" id="header">
+				<i class="separador fa fa-chevron-left fa-2x" onclick="onBackKeyDown();"></i>
+				<h1 style="width:80%;margin:0 auto;" class="ui-title">TELÉFONOS DE INTERESE</h1>
+			</div>
+			
+			<div data-role="content" id="menu-principal">
+				<div id="estilo-interes">
+				
+					<h3>No Morrazo:</h3>
+					<table id="tabla-interes">
+						<tr class="impar"><td>Bombeiros do Morrazo:</td><td onclick="window.open('tel:+34986390646', '_system');">986 390646</td></tr>
+						<tr class="par"><td>Centro de emerxencias SOS Galicia</td><td><p onclick="window.open('tel:+34112', '_system');">112</p><p>&nbsp;-&nbsp;</p><p onclick="window.open('tel:+34981541400', '_system');">981 541400</p></td></tr>
+						<tr class="impar"><td>Urxencias sanitarias:</td><td onclick="window.open('tel:+34061', '_system');">061</td></tr>
+						<tr class="par"><td>Servizo de Búsqueda e Salvamento Marítimo:</td><td><p onclick="window.open('tel:+34981544070', '_system');">981 544070</p><p>&nbsp;-&nbsp;</p><p onclick="window.open('tel:+34981544077', '_system');">981 544077</p></td></tr>
+					</table>
+
+					<h3>En Bueu:</h3>
+					<table id="tabla-interes">
+						<tr class="impar"><td>Concello:</td><td onclick="window.open('tel:+34986390029', '_system');">986 390029</td><td>www.concellodebueu.org</td></tr>
+						<tr class="par"><td>Oficina de Turismo:</td><td onclick="window.open('tel:+34986324457', '_system');">986 324457</td><td>&nbsp;</td></tr>
+						<tr class="impar"><td>Oficina Municipal de Información Xuvenil (OMIX):</td><td onclick="window.open('tel:+34986324338', '_system');">986 324338</td><td>&nbsp;</td></tr>
+						<tr class="par"><td>Biblioteca Pública:</td><td onclick="window.open('tel:+34986323140', '_system');">986 323140</td><td>&nbsp;</td></tr>
+						<tr class="impar"><td>Aula da Natureza de Cabo Udra:</td><td onclick="window.open('tel:+34699996685', '_system');">699 996685</td><td>&nbsp;</td></tr>
+						<tr class="par"><td>Museo Massó:</td><td onclick="window.open('tel:+34986321838', '_system');">986 321838</td><td>museomasso.blogspot.com</td></tr>
+						<tr class="impar"><td>Policía Local:</td><td onclick="window.open('tel:+34986320062', '_system');">986 320062</td><td>&nbsp;</td></tr>
+						<tr class="par"><td>Protección Civil:</td><td onclick="window.open('tel:+34986322267', '_system');">986 322267</td><td>&nbsp;</td></tr>
+						<tr class="impar"><td>Centro de Saúde:</td><td onclick="window.open('tel:+34986323313', '_system');">986 323313</td><td>&nbsp;</td></tr>
+						<tr class="par"><td>Correos:</td><td onclick="window.open('tel:+34986321990', '_system');">986 321990</td><td>&nbsp;</td></tr>
+						<tr class="impar"><td>Taxis rúa Montero Ríos:</td><td onclick="window.open('tel:+34986320910', '_system');">986 320910</td><td>&nbsp;</td></tr>
+						<tr class="par"><td>Taxis rúa Pazos Fontenla:</td><td onclick="window.open('tel:+34986324145', '_system');">986 324145</td><td>&nbsp;</td></tr>
+						<tr class="impar"><td>Autobuses Cerqueiro:</td><td onclick="window.open('tel:+34986320254', '_system');">986 320254</td><td>&nbsp;</td></tr>
+						<tr class="par"><td>Autobuses Monbus:</td><td onclick="window.open('tel:+34986850849', '_system');">986 850849</td><td>&nbsp;</td></tr>
+						<tr class="impar"><td>Cruceros Islas de Ons:</td><td onclick="window.open('tel:+34627900017', '_system');">627 900017</td><td>www.islasdeons.com</td></tr>
+						<tr class="par"><td>Naviera Nabia:</td><td onclick="window.open('tel:+34986320048', '_system');">986 320048</td><td>www.piratasdenabia.com</td></tr>
+					</table>						
+
+					<h3>En Cangas:</h3>
+					<table id="tabla-interes">
+						<tr class="impar"><td>Concello:</td><td><p onclick="window.open('tel:+34986300050', '_system');">986 300050</p><p>&nbsp;-&nbsp;</p><p onclick="window.open('tel:+34986300162', '_system');">986 300162</p></td><td>www.cangas.org</td></tr>
+						<tr class="par"><td>Concellería de Turismo:</td><td onclick="window.open('tel:+34986392023', '_system');">986 392023</td><td>&nbsp;</td></tr>
+						<tr class="impar"><td>Oficina de turismo Estación Marítima:</td><td onclick="window.open('tel:+34986300875', '_system');">986 300875</td><td>(Dende Semana Santa a Setembro de 16:30h a 19:30h)</td></tr>
+						<tr class="par"><td>Auditorio Municipal:</td><td><p onclick="window.open('tel:+34986304108', '_system');">986 304108</p><p>&nbsp;-&nbsp;</p><p onclick="window.open('tel:+34986392036', '_system');">986 392036</p></td><td>&nbsp;</td></tr>
+						<tr class="impar"><td>Biblioteca Municipal:</td><td onclick="window.open('tel:+34986304126', '_system');">986 304126</td><td>&nbsp;</td></tr>
+						<tr class="par"><td>Casa da Cultura:</td><td onclick="window.open('tel:+34986304550', '_system');">986 304550</td><td>&nbsp;</td></tr>
+						<tr class="impar"><td>Casa da Xuventude:</td><td onclick="window.open('tel:+34986392171', '_system');">986 392171</td><td>&nbsp;</td></tr>
+						<tr class="par"><td>Oficina Municipal de Información Xuvenil:</td><td onclick="window.open('tel:+34986392171', '_system');">986 392171</td><td>&nbsp;</td></tr>
+						<tr class="impar"><td>Oficina de Información ó consumidor (OMIC):</td><td onclick="window.open('tel:+34986392268', '_system');">986 392268</td><td>&nbsp;</td></tr>
+						<tr class="par"><td>Fundación Cangas Deporte:</td><td onclick="window.open('tel:+34986392166', '_system');">986 392166</td><td>&nbsp;</td></tr>						
+						<tr class="impar"><td>Axencia de Emprego e Desenvolvemento Local:</td><td onclick="window.open('tel:+34986301371', '_system');">986 301371</td><td>&nbsp;</td></tr>	
+						<tr class="par"><td>Centro Municipal de Benestar Social:</td><td><p onclick="window.open('tel:+34986392266', '_system');">986 392266</p><p>&nbsp;-&nbsp;</p><p onclick="window.open('tel:+34986392267', '_system');">986 392267</p></td><td>&nbsp;</td></tr>	
+
+						<tr class="impar"><td>Correos:</td><td onclick="window.open('tel:+34986301596', '_system');">986 301596</td><td>&nbsp;</td></tr>	
+						<tr class="par"><td>Policía Local:</td><td onclick="window.open('tel:+34986303031', '_system');">986 303031</td><td>&nbsp;</td></tr>	
+						<tr class="impar"><td>Protección Civil:</td><td onclick="window.open('tel:+34986305530', '_system');">986 305530</td><td>&nbsp;</td></tr>	
+						<tr class="par"><td>Centro de Saude Cangas:</td><td onclick="window.open('tel:+34986300304', '_system');">986 300304</td><td>&nbsp;</td></tr>	
+						<tr class="impar"><td>Taxis:</td><td><p onclick="window.open('tel:+34986300761', '_system');">986 300761</p><p>&nbsp;-&nbsp;</p><p onclick="window.open('tel:+34986300304', '_system');">986 300304</p><p>&nbsp;-&nbsp;</p><p onclick="window.open('tel:+34986392028', '_system');">986 392028</p></td><td>&nbsp;</td></tr>	
+						<tr class="par"><td>Estación Marítima (Naviera mar de Ons)</td><td onclick="window.open('tel:+34986225272', '_system');">986 225272</td><td>www.mardeons.com</td></tr>	
+						<tr class="impar"><td>Autobuses Cerqueiro:</td><td><p>Att.viaxeiro&nbsp;</p><p onclick="window.open('tel:+34986320254', '_system');">986 320254</p></td><td>www.grupoasrias.com</td></tr>	
+						<tr class="par"><td>Autobuses Monbus::</td><td><p onclick="window.open('tel:+34986300122', '_system');">986 300122</p><p>&nbsp;- Att.viaxeiro: </p><p onclick="window.open('tel:+34902292900', '_system');">902 292900</p></td><td>&nbsp;</td></tr>	
+					</table>
+					
+					
+					<h3>En Moaña:</h3>
+					<table id="tabla-interes">
+						<tr class="impar"><td>Concello:</td><td onclick="window.open('tel:+34986310100', '_system');">986 310100</td><td>&nbsp;</td></tr>
+						<tr class="par"><td>Policía Local:</td><td onclick="window.open('tel:+34986311656', '_system');">986 311656</td><td>&nbsp;</td></tr>
+						<tr class="impar"><td>Patronato Municipal Beiramar:</td><td onclick="window.open('tel:+34986314200', '_system');">986 314200</td><td>&nbsp;</td></tr>
+						<tr class="par"><td>Centro Municipal de Benestar Social:</td><td onclick="window.open('tel:+34986313600', '_system');">986 313600</td><td>&nbsp;</td></tr>
+						<tr class="impar"><td>Biblioteca Pública Municipal:</td><td onclick="window.open('tel:+34986314250', '_system');">986 314250</td><td>&nbsp;</td></tr>
+						<tr class="par"><td>Oficina de Información Juvenil:</td><td onclick="window.open('tel:+34986315457', '_system');">986 315457</td><td>&nbsp;</td></tr>
+						<tr class="impar"><td>Complexo deportivo e de ocio O Beque (Camping O Beque):</td><td><p onclick="window.open('tel:+34986687828', '_system');">986 687828</p><p>&nbsp;-&nbsp;</p><p onclick="window.open('tel:+34677497799', '_system');">677 497799</p></td><td>&nbsp;</td></tr>
+						<tr class="par"><td>Casa do Mar/Ambulatorio:</td><td onclick="window.open('tel:+34986311733', '_system');">986 311733</td><td>&nbsp;</td></tr>
+						<tr class="impar"><td>Naviera Nabia:</td><td onclick="window.open('tel:+34986320048', '_system');">986 320048</td><td>www.piratasdenabia.com</td></tr>
+						<tr class="par"><td>Taxis:</td><td onclick="window.open('tel:+34986312997', '_system');">986 312997</td><td>&nbsp;</td></tr>
+						<tr class="impar"><td>Guardia Civil:</td><td onclick="window.open('tel:+34986310067', '_system');">986 310067</td><td>&nbsp;</td></tr>
+						<tr class="par"><td>Protección Civil:</td><td onclick="window.open('tel:+34986311600', '_system');">986 311600</td><td>&nbsp;</td></tr>
+						<tr class="impar"><td>Centro Sociocultural Daniel Castelao:</td><td onclick="window.open('tel:+34986314346', '_system');">986 314346</td><td>&nbsp;</td></tr>
+						<tr class="par"><td>C. Cultural Rosalía de Castro:</td><td onclick="window.open('tel:+34986326041', '_system');">986 326041</td><td>&nbsp;</td></tr>
+						<tr class="impar"><td>C.Cultural José M. Castroviejo:</td><td onclick="window.open('tel:+34986310015', '_system');">986 310015</td><td>&nbsp;</td></tr>
+						<tr class="par"><td>Correos y Telégrafos:</td><td onclick="window.open('tel:+34986310696', '_system');">986 310696</td><td>&nbsp;</td></tr>
+					</table>
+	
+					<div id="transitorio" class="oculto"><div class="loader"><i class="fa fa-cog fa-4x"></i><h3>Cargando...</h3></div></div>
+				</div>
+			</div>
+					
+		</div>
+
+		
+<!-- Panel de COMO CHEGAR O MORRAZO -->
+		<div data-role="page" id="pantallaA" class="pantalla">
+
+			<div data-role="header" data-theme="b" id="header">
+				<i class="separador fa fa-chevron-left fa-2x" onclick="onBackKeyDown();"></i>
+				<h1 style="width:80%;margin:0 auto;" class="ui-title">COMO CHEGAR</h1>
+			</div>
+			
+			<div data-role="content" id="menu-principal">
+				<div class="elemento-completo" style="width:32%;display:inline-block;" onclick="enlazarGoogle('B');">
+					<img src="img/bueu.png">
+				</div>
+				<div class="elemento-completo" style="width:32%;display:inline-block;" onclick="enlazarGoogle('C');">
+					<img src="img/cangas.png">
+				</div>
+				<div class="elemento-completo" style="width:32%;display:inline-block;" onclick="enlazarGoogle('M');">
+					<img src="img/moana.png">
+				</div>
+				<div id="transitorio" class="oculto"><div class="loader"><i class="fa fa-cog fa-4x"></i><h3>Cargando...</h3></div></div>
+			</div>
+					
+		</div>
+		
+		
+<!-- Panel de AXENDA DO MORRAZO -->
+		<div data-role="page" id="pantallaB" class="pantalla">
+
+			<div data-role="header" data-theme="b" id="header">
+				<i class="separador fa fa-chevron-left fa-2x" onclick="onBackKeyDown();"></i>
+				<h1 class="titulo" style="width:80%;margin:0 auto;">AXENDA DO MORRAZO</h1>
+			</div>
+			
+			<div data-role="content" data-theme="a" class="ui-content" style="padding:0px;">
+				<div id="reemplaza-listado3">
+					&nbsp;
+				</div>
+				<div id="cargando5">
+					<!--<div class="marcador-cargando"><img src="img/cargando.gif"></div>-->
+					<div class="marcador-cargando"><i class="fa fa-cog"></i><h3>Cargando...</h3></div>
+				</div>
+			</div>
+
+			<div data-role="footer" data-theme="b" id="zonafooter" style="display:none;">
+				<h2>ALGO</h2>
+			</div>
+					
+		</div>
+
+		
+<!-- Pantalla de listado de elementos de una categoria -->
+		<div data-role="page" id="pantalla10" class="pantalla">
+
+			<div data-role="header" data-theme="b" id="headerlistado">
+				<i class="separador fa fa-chevron-left fa-2x" onclick="onBackKeyDown();"></i>
+				<h1 class="titulo" style="width:80%;margin:0 auto;">RESULTADOS</h1>
+			</div>
+			
+			<div data-role="content" data-theme="a" class="ui-content" style="padding:0px;" id="menu-principal">
+				<div id="reemplaza-listado">
+					&nbsp;
+				</div>
+				<div id="cargando">
+					<!--<div class="marcador-cargando"><img src="img/cargando.gif"></div>-->
+					<div class="marcador-cargando"><i class="fa fa-cog"></i><h3>Cargando...</h3></div>
+				</div>
+			</div>
+		
+		</div>
+
+
+<!-- Pantalla de detalle de un elemento de una categoria -->
+		<div data-role="page" id="pantalla11" class="pantalla">
+
+			<div data-role="header" data-theme="b" id="header">
+				<i class="separador fa fa-chevron-left fa-2x" onclick="onBackKeyDown();"></i>
+				<h1 id="titulo-detalle" style="width:80%;margin:0 auto;" class="ui-title">DETALLE</h1>
+				<i class="compartir fa fa-share-alt fa-2x" onclick="CompartirSociales();"></i>
+			</div>
+			
+			<div data-role="content" class="ui-content" style="padding:0px;" id="menu-principal">
+			
+				<div id="cargando2">
+					<!--<div class="marcador-cargando"><img src="img/cargando.gif"></div>-->
+					<div class="marcador-cargando"><i class="fa fa-cog"></i><h3>Cargando...</h3></div>
+				</div>
+				
+				<div id="reemplaza-detalle">&nbsp;</div>
+
+				<div id="fotos-detalle" style="display:none;">&nbsp;</div>
+				
+			</div>
+
+			<div data-role="footer" data-theme="b" id="piepagina" class="ui-footer ui-bar-b">
+				<h2><span class="icon-footer fa fa-location-arrow"></span>COMO CHEGAR</h2>
+			</div>
+		</div>	
+
+		
+<!-- Pantalla de detalle de un roteiro -->
+		<div data-role="page" id="pantalla12" class="pantalla">
+
+			<div data-role="header" data-theme="b" id="header">
+				<i class="separador fa fa-chevron-left fa-2x" onclick="onBackKeyDown();"></i>
+				<h1 style="width:80%;margin:0 auto;" class="ui-title">ROTEIROS</h1>
+				<i class="compartir fa fa-share-alt fa-2x" onclick="CompartirSociales();"></i>
+			</div>
+			
+			<div data-role="content" class="ui-content" style="padding:0px;" id="menu-principal">
+			
+				<div id="cargando4">
+					<!--<div class="marcador-cargando"><img src="img/cargando.gif"></div>-->
+					<div class="marcador-cargando"><i class="fa fa-cog"></i><h3>Cargando...</h3></div>
+				</div>
+				
+				<div id="reemplaza-detalle2">&nbsp;</div>
+
+				<div id="fotos-detalle" style="display:none;">&nbsp;</div>
+				
+			</div>
+
+			<div data-role="footer" data-theme="b" id="piepagina2" class="ui-footer ui-bar-b">
+				<h2><span class="icon-compass fa fa-location-arrow"></span>VER EN WIKILOC</h2>
+			</div>
+		</div>
+
+
+<!-- Pantalla de detalle de un EVENTO -->
+		<div data-role="page" id="pantalla13" class="pantalla">
+
+			<div data-role="header" data-theme="b" id="header">
+				<i class="separador fa fa-chevron-left fa-2x" onclick="onBackKeyDown();"></i>
+				<h1 style="width:80%;margin:0 auto;" class="ui-title" id="titulo-detaagenda">EVENTO</h1>
+				<i class="compartir fa fa-share-alt fa-2x" onclick="CompartirSociales();"></i>
+			</div>
+			
+			<div data-role="content" class="ui-content" style="padding:0px;" id="menu-principal">
+			
+				<div id="cargando6">
+					<!--<div class="marcador-cargando"><img src="img/cargando.gif"></div>-->
+					<div class="marcador-cargando"><i class="fa fa-cog"></i><h3>Cargando...</h3></div>
+				</div>
+				
+				<div id="reemplaza-detalle3">&nbsp;</div>
+
+				<div id="fotos-detalle" style="display:none;">&nbsp;</div>
+				
+			</div>
+
+			<div data-role="footer" data-theme="b" id="piepagina3" class="ui-footer ui-bar-b">
+				<h2><span class="icon-footer fa fa-location-arrow"></span>COMO CHEGAR</h2>
+			</div>			
+		</div>		
+
+		
+		<!-- Transiciones de pantalla -->
+
+        <script type="text/javascript">
+
+			var nivel;
+			var p_tipo;
+			var p_subtipo;
+			var p_nid;
+			var p_latitud;
+			var p_longitud;
+			var UrlContenido;
+			var DetalleTitulo;
+			var coordRuta = [];
+			var viene_de_mapa;
+				
+			document.addEventListener("deviceready", onDeviceReady, false);
+				
+			document.addEventListener("backbutton", onBackKeyDown, false);
+			
+			function onDeviceReady() {
+//			alert(window.innerWidth + ' x ' + window.innerHeight);
+				viene_de_mapa = false;
+				
+				var hash = window.location.hash;
+				var pos = hash.indexOf('?');
+				var url = hash.substr(0,pos);
+				var search = hash.substr(pos,999);
+//alert('onDeviceReady ' + url);				
+				if (url == '#pantalla10') {
+// Si vengo desde el mapa entro por aqui
+					if (search.substr(0,6) == '?modo=') var modo = search.substr(6,999);
+					
+					if (modo == 'Relixioso') {	var tipo = 'F'; var subtipo = 136; }	
+					if (modo == 'Civil') {	var tipo = 'F'; var subtipo = 110; }	
+					if (modo.substr(0, 6) == 'Etnogr') {	var tipo = 'F'; var subtipo = 111; }	
+					if (modo == 'Museos') {	var tipo = 'F'; var subtipo = 114; }	
+					if (modo.substr(0, 4) == 'Mari') {	var tipo = 'F'; var subtipo = 137; }
+					if (modo.substr(0, 5) == 'Antig') {	var tipo = 'F'; var subtipo = 135; }						
+
+					if (modo.substr(0, 6) == 'Hoteis') {	var tipo = 'B'; var subtipo = 123; }	
+					if (modo.substr(0, 12) == 'Apartamentos') {	var tipo = 'B'; var subtipo = 124; }	
+					if (modo.substr(0, 5) == 'Casas') {	var tipo = 'B'; var subtipo = 125; }	
+					if (modo.substr(0, 8) == 'Campings') {	var tipo = 'B'; var subtipo = 139; }						
+
+					if (modo.substr(0, 12) == 'Restaurantes') {	var tipo = 'A'; var subtipo = 120; }	
+					if (modo.substr(0, 5) == 'Taper') {	var tipo = 'A'; var subtipo = 121; }	
+					if (modo.substr(0, 6) == 'Cafete') {	var tipo = 'A'; var subtipo = 122; }	
+
+					if (modo.substr(0, 6) == 'Praias') {	var tipo = 'C'; var subtipo = 117; }	
+					if (modo.substr(0, 6) == 'Xardin') {	var tipo = 'C'; var subtipo = 115; }	
+					if (modo.substr(0, 7) == 'Espazos') {	var tipo = 'C'; var subtipo = 116; }	
+		
+					cambiarSeccion('pantalla10',tipo,subtipo,null);
+				}
+				else if (url == '#redirigir') {
+// Si vengo desde el mapa pidiendo el detalle de un sitio
+					viene_de_mapa = true;
+					
+					if (search.substr(0,5) == '?nid=') var nid = search.substr(5,999);
+	
+					cambiarSeccion('pantalla11',null,null,nid);
+				}
+				else if (url == '#redirigir2') {
+// Si vengo desde el mapa pidiendo el detalle de un sitio
+					viene_de_mapa = true;
+					
+					if (search.substr(0,5) == '?nid=') var nid = search.substr(5,999);
+	
+					cambiarSeccion('pantalla13',null,null,nid);
+				}				
+				
+				else {
+//Si no hay # es pq estoy en raiz arrancando desde el principio		
+					navigator.geolocation.getCurrentPosition(onSuccessPos2, onErrorPos2);		
+					setTimeout(function() {
+						$.mobile.changePage("#pantalla2", { transition: "slide", reverse: false });
+					}, 5000);
+				}	
+			}
+			
+			function cambiarSeccion(midiv,tipo,subtipo,nid) {
+				p_tipo = tipo;
+				p_subtipo = subtipo;
+				p_nid = nid;
+				$.mobile.changePage("#" + midiv + '?subtipo=' + subtipo, { transition: "slide", reverse: false });
+//alert('cambiarSeccion ' + midiv);
+				if (midiv == 'pantalla10') {
+					$('div#cargando').show();	
+					navigator.geolocation.getCurrentPosition(onSuccessPos, onErrorPos, {timeout: 6000, enableHighAccuracy: true, maximumAge: 120000});
+				}
+				if (midiv == 'pantalla11') {
+					$('div#cargando2').show();	
+					$('div#piepagina').hide();
+					obtenerDetalles();
+				}
+				if (midiv == 'pantalla8') {
+					$('div#cargando3').show();	
+					obtenerRoteiros();
+				}					
+				if (midiv == 'pantalla12') {
+					$('div#cargando4').show();	
+					$('div#piepagina2').hide();
+					obtenerDetaRoteiro();
+				}
+				if (midiv == 'pantallaB') {
+					$('div#cargando5').show();	
+					obtenerAgenda();
+				}
+				if (midiv == 'pantalla13') {
+					$('div#cargando6').show();
+					$('div#piepagina3').hide();					
+					obtenerDetaAgenda();
+				}				
+			}
+
+			function cambiarSeccionReversa(midiv) {
+				$.mobile.changePage("#" + midiv, { transition: "slide", reverse: true });
+			}	
+			
+			function onBackKeyDown() {
+				var hash = window.location.hash;
+								
+//				alert('Estoy en ' + hash);
+				
+				if (hash == '#pantalla2') {
+					navigator.notification.confirm('¿Desexas sair da aplicación?', CerrarApp, 'Vive o Morrazo','SI,NON');
+				}
+				else if (hash == '#pantalla8') {
+					$("h1#titulo-principal").text('VIVE O MORRAZO');
+					cambiarSeccionReversa('pantalla2');
+				}
+				else if (hash == '#pantalla12') {
+					cambiarSeccionReversa('pantalla8');
+				}	
+				else if (hash == '#pantalla13') {
+					if (viene_de_mapa) {
+						history.go(-2);
+					}
+					else {	
+						cambiarSeccionReversa('pantallaB');
+					}	
+				}
+				else if (hash == '#pantalla11') {
+					if (viene_de_mapa) {
+						history.go(-2);
+					}
+					else {	
+						history.go(-1);
+					}	
+				}				
+				else if (hash == '#pantalla10?modo=Relixioso') {
+					cambiarSeccionReversa('pantalla3');
+				}
+				else if (hash == '#pantalla10?modo=Civil') {
+					cambiarSeccionReversa('pantalla3');
+				}	
+				else if (hash.substr(0, 23) == '#pantalla10?modo=Etnogr') {
+					cambiarSeccionReversa('pantalla3');
+				}	
+				else if (hash == '#pantalla10?modo=Museos') {
+					cambiarSeccionReversa('pantalla3');
+				}	
+				else if (hash.substr(0, 21) == '#pantalla10?modo=Mari') {
+					cambiarSeccionReversa('pantalla3');
+				}	
+				else if (hash.substr(0, 22) == '#pantalla10?modo=Antig') {
+					cambiarSeccionReversa('pantalla3');
+				}	
+				else if (hash == '#pantalla10?modo=Praias') {
+					cambiarSeccionReversa('pantalla6');
+				}	
+				else if (hash.substr(0, 23) == '#pantalla10?modo=Xardin') {
+					cambiarSeccionReversa('pantalla6');
+				}	
+				else if (hash.substr(0, 24) == '#pantalla10?modo=Espazos') {
+					cambiarSeccionReversa('pantalla6');
+				}		
+				else if (hash == '#pantalla10?modo=Restaurantes') {
+					cambiarSeccionReversa('pantalla5');
+				}	
+				else if (hash.substr(0, 22) == '#pantalla10?modo=Taper') {
+					cambiarSeccionReversa('pantalla5');
+				}	
+				else if (hash.substr(0, 23) == '#pantalla10?modo=Cafete') {
+					cambiarSeccionReversa('pantalla5');
+				}		
+				else if (hash == '#pantalla10?modo=Hoteis') {
+					cambiarSeccionReversa('pantalla4');
+				}		
+				else if (hash == '#pantalla10?modo=Apartamentos') {
+					cambiarSeccionReversa('pantalla4');
+				}	
+				else if (hash == '#pantalla10?modo=Campings') {
+					cambiarSeccionReversa('pantalla4');
+				}	
+				else if (hash.substr(0, 22) == '#pantalla10?modo=Casas') {
+					cambiarSeccionReversa('pantalla4');
+				}					
+				else if (hash == '#pantalla3') {
+					$("h1#titulo-principal").text('VIVE O MORRAZO');
+					cambiarSeccionReversa('pantalla2');
+				}		
+				else if (hash == '#pantalla4') {
+					$("h1#titulo-principal").text('VIVE O MORRAZO');
+					cambiarSeccionReversa('pantalla2');
+				}	
+				else if (hash == '#pantalla5') {
+					$("h1#titulo-principal").text('VIVE O MORRAZO');
+					cambiarSeccionReversa('pantalla2');
+				}	
+				else if (hash == '#pantalla6') {
+					$("h1#titulo-principal").text('VIVE O MORRAZO');
+					cambiarSeccionReversa('pantalla2');
+				}	
+				else if (hash == '#pantallaB') {
+					$("h1#titulo-principal").text('VIVE O MORRAZO');
+					cambiarSeccionReversa('pantalla2');
+				}					
+				else {
+					history.go(-1);
+				}	
+			}
+			
+			function CerrarApp(index) {
+				if (index == 1) {
+					navigator.app.exitApp();
+				}	
+			}		
+
+			function cambiarpagina(midiv,url) {
+				
+				$("#transitorio").removeClass('oculto');
+				
+				var midiv = document.getElementById(midiv);
+				var mover = '-' + window.innerWidth + 'px';
+				$(midiv).animate({'left':mover},400,function(){document.location.href=url;} );
+
+			}
+
+			function cambiarpaginaExt(midiv,url) {
+				
+				$("#transitorio").removeClass('oculto');
+				
+				var midiv = document.getElementById(midiv);
+				var mover = '-' + window.innerWidth + 'px';
+				$(midiv).animate({'left':mover},600,function(){ navigator.app.loadUrl(url, { openExternal:true });return false;// 	window.open(url, '_system', 'location=yes');
+																} );
+
+			}
+			
+// Obtencion de listados
+			function onSuccessPos(position) {				
+				p_latitud = position.coords.latitude;
+				p_longitud = position.coords.longitude;
+				ObtenerLugares(p_latitud,p_longitud);
+			}
+
+			function onErrorPos(error) {	
+				p_latitud = 0;
+				p_longitud = 0;
+				ObtenerLugares(p_latitud,p_longitud);
+			}			
+
+			function onSuccessPos2(position) {
+				p_latitud = position.coords.latitude;
+				p_longitud = position.coords.longitude;
+			}
+
+			function onErrorPos2(error) {
+				p_latitud = 0;
+				p_longitud = 0;
+			}	
+			
+			function ObtenerLugares(lat,longi) {
+
+				var URLsearch = window.location.search;
+				var datos = URLsearch.split("-");
+		
+				var termino = ''; //datos[0].replace("?termino=","");
+				var localidad = ''; //datos[1].replace("localidad=","");
+				var tipo = p_tipo; // datos[2].replace("tipo=","");
+				var subtipo = p_subtipo; //datos[3].replace("subtipo=","");
+				var iniciar = ''; //datos[4].replace("iniciar=","");
+
+// Para hacer las coordenadas positivas y poder pasarlas a otra pantalla			
+				var lt = lat + 500;
+				var lg = longi + 500;
+
+				archivoValidacion = "http://www.viveomorrazo.com/temporal/busqueda_movil.php?jsoncallback=?"
+
+				$.getJSON( archivoValidacion, { termino:termino, tipo:tipo, subtipo:subtipo, localidad:localidad, iniciar:iniciar, lat:lat, lon:longi })
+					.done(function(respuestaServer) {
+				
+						if(respuestaServer.validacion == "ok"){
+						  
+							/// si la validacion es correcta, muestra la pantalla "home"
+							/// $.mobile.changePage("#home")
+							$( "div#reemplaza-listado" ).replaceWith
+												( '<div id="reemplaza-listado">' + respuestaServer.mensaje + '</div>');
+							
+/*							var siguiente = $('.siguiente-elemento').text();
+							
+							if (siguiente) {
+								var cadena = "window.location.href='listado.html?termino=" + termino + "-localidad=" + localidad + "-tipo=" + tipo + 		
+											"-subtipo=" + subtipo + "-iniciar=" + siguiente + "-lat=" + lt + "-lon=" + lg +"'";
+								$('div#zonafooter').replaceWith( '<div data-role="footer" data-theme="b" id="zonafooter" class="ui-footer ui-bar-b">' +
+																	'<a onclick="' + cadena + '" class="ui-title">SEGUINTES</a></div>');
+							}
+							else $('div#zonafooter').replaceWith('');	
+*/
+							var titulo = null;
+	
+// Mismo listdo en detalle.html							
+							 if (subtipo == 110) titulo = 'Civil'; 
+							 if (subtipo == 111) titulo = 'Etnográfico';
+							 if (subtipo == 114) titulo = 'Museos';
+							if (subtipo == 115) titulo = 'Xardins e Zoas verdes';
+							if (subtipo == 116) titulo = 'Espazos Naturais';
+							if (subtipo == 117) titulo = 'Praias';	
+							if (subtipo == 120) titulo = 'Restaurantes';
+							if (subtipo == 121) titulo = 'Taperías';
+							if (subtipo == 122) titulo = 'Cafeterías';	
+							if (subtipo == 123) titulo = 'Hoteis';
+							if (subtipo == 124) titulo = 'Apartamentos';
+							if (subtipo == 125) titulo = 'Casas Rurais';							
+							 if (subtipo == 135) titulo = 'Antigüidade';
+							 if (subtipo == 136) titulo = 'Relixioso';
+							 if (subtipo == 137) titulo = 'Mariñeiro';
+							if (subtipo == 139) titulo = 'Campings';
+							
+							if (titulo) {
+								var cadena = "window.location.href='mapa.html?modo=" + titulo + "'";
+								var cabecera =  '<div data-role="header" data-theme="b" id="headerlistado" class="ui-header ui-bar-b">' +
+												'<i class="separador fa fa-chevron-left fa-2x" onclick="onBackKeyDown();"></i>' + 
+												'<h1 class="ui-title" style="width:80%;margin:0 auto;">' + titulo + '</h1>' +
+												'<i class="separador fa fa-map-marker fa-2x" onclick="' + cadena + '"></i>' +'</div>';
+								$('div#headerlistado').replaceWith(cabecera);				
+							}
+										
+							$('div#cargando').hide();	
+							$('div#piepagina').show();				
+							
+//							$.mobile.changePage("#pantalla4", { transition: "slide" });
+							
+//							alert('LLamada Correcta');
+							//alert(respuestaServer.mensaje);
+						}else{
+						  
+						  /// ejecutar una conducta cuando la validacion falla
+							alert('Error llamada' + respuestaServer.mensaje);
+						}
+			  
+					})
+					
+					.fail(function() {
+						alert('ERROR LLAMADA');
+					})
+			};	
+
+			
+			function obtenerDetalles() {
+						
+				var map;
+				
+				archivoValidacion = "http://www.viveomorrazo.com/temporal/detalle_movil.php?jsoncallback=?"
+
+//				alert('Lat: ' + p_latitud + ' - ' + p_longitud);
+				$.getJSON( archivoValidacion, { nid: p_nid, lat: p_latitud, lon: p_longitud})
+					.done(function(respuestaServer) {
+							
+						if(respuestaServer.validacion == "ok"){
+						
+							$( "div#reemplaza-detalle" ).replaceWith( '<div id="reemplaza-detalle">' + respuestaServer.mensaje + '</div>');
+							
+//							$("#pantalla5").animate({'left':'0px'},400,function(){$("#transitorio").css("display","none");} );
+							$('div#cargando2').hide();
+							
+/*							var swiper = new Swiper('.swiper-container',{
+									pagination: '.swiper-pagination',
+									paginationClickable: '.swiper-pagination',
+							});
+*/
+
+	//						alert('Coordenadas: ' + respuestaServer.longitud + ' y ' + respuestaServer.latitud);	
+							
+							if (respuestaServer.longitud != 0) {
+			
+								var centerLocation = new google.maps.LatLng(respuestaServer.latitud,respuestaServer.longitud);
+
+								var myOptions = {
+									center: centerLocation,
+									zoom: 15,
+									zoomControl: false,
+									panControl: false,		
+									mapTypeControl: false,
+									scaleControl: false,
+									streetViewControl: false,								
+									mapTypeId: google.maps.MapTypeId.ROADMAP,
+									callback: function () { alert('callback'); }
+								};
+
+								map_element = document.getElementById("map-canvas");
+
+								map = new google.maps.Map(map_element, myOptions);
+
+								var marker = new google.maps.Marker({
+										position: centerLocation,
+										map: map,
+										title: respuestaServer.titulo,
+			//							zIndex: beach[3],
+			//							icon: icono,
+			//							animation: google.maps.Animation.DROP,
+								});
+								
+								$("h1#titulo-detalle").text(respuestaServer.titulo);
+								
+								var addressLongLat = respuestaServer.latitud + ',' + respuestaServer.longitud;
+								var addressOrigen = p_latitud + ',' + p_longitud;
+								var urlRuta = 'http://www.google.es/maps/dir/' + addressOrigen + '/' + addressLongLat + '/@' + addressOrigen;
+								
+			// IOS: usar window.open("http://maps.apple.com/?q="+addressLongLat, '_system');					
+								
+								UrlContenido = respuestaServer.url;
+								
+								DetalleTitulo = respuestaServer.nombrelugar;
+
+//								$("#piepagina").on("click",function(){ window.open("geo:"+addressLongLat, '_system');});
+//								$("#piepagina").on("click",function(){ navigator.app.loadUrl("geo:"+addressLongLat, { openExternal:true });return false; });
+								$("#piepagina").on("click",function(){ navigator.app.loadUrl(urlRuta, { openExternal:true });return false; });
+								
+								$('div#piepagina').show();		
+
+								var alturaDetalle = $(".texto-detalle").height();
+								var alturaVentana = $( window ).height();
+								var alturaMaxima = alturaVentana * 0.7;
+					
+								if ( alturaDetalle > alturaMaxima ) {
+									var html_detalle =  $("div.texto-detalle").html();
+									html_detalle = 	'<div class="texto-detalle">' + html_detalle + '</div><p onclick="ampliarAltura(' + alturaDetalle + 
+													')" class="leermas">' + 'Ler máis' + '</p>';
+									$( "div.texto-detalle" ).replaceWith(html_detalle);
+									$(".texto-detalle").css('max-height',alturaMaxima);
+									$(".texto-detalle").css('overflow','hidden');
+								}
+							}
+
+						}else{
+							  
+							  /// ejecutar una conducta cuando la validacion falla
+							alert("Error llamada" + respuestaServer.mensaje);
+						}	
+					})
+						
+					.fail(function() {
+						alert("ERROR LLAMADA");
+					})
+			}	
+			
+			function ampliarAltura(altura) {
+				$(".texto-detalle").css('max-height',99999);
+				$(".texto-detalle").css('overflow','none');	
+				$("p.leermas").css('display','none');		
+			}
+			
+			function mostrarFotos(nid) {
+			
+				archivoValidacion = "http://www.viveomorrazo.com/temporal/detalle_imagenes.php?jsoncallback=?"
+
+				$.getJSON( archivoValidacion, { nid: nid})
+					.done(function(respuestaServer) {
+							
+						if(respuestaServer.validacion == "ok"){
+
+			
+							$( "div#fotos-detalle" ).replaceWith( '<div id="fotos-detalle">' + respuestaServer.mensaje + '</div>');
+							
+//							$('div#reemplaza-detalle').hide();
+							
+							var swiper = new Swiper('.swiper-container', {
+									pagination: '.swiper-pagination',
+									paginationClickable: '.swiper-pagination',
+							});
+
+
+
+						}else{
+							  
+							  /// ejecutar una conducta cuando la validacion falla
+							alert("Error llamada" + respuestaServer.mensaje);
+						}	
+					})
+						
+					.fail(function() {
+						alert("ERROR LLAMADA");
+					})				
+			}
+			
+			function CerrarZonaFotos() {
+				$('div#fotos-detalle').hide();
+//				$('div#reemplaza-detalle').show();
+			}
+
+			function obtenerRoteiros() {
+
+				archivoValidacion = "http://www.viveomorrazo.com/temporal/roteiro_movil.php?jsoncallback=?"
+
+				$.getJSON( archivoValidacion, { })
+					.done(function(respuestaServer) {
+					
+						if(respuestaServer.validacion == "ok"){
+						  
+							/// si la validacion es correcta, muestra la pantalla "home"
+							/// $.mobile.changePage("#home")
+							$( "div#reemplaza-listado2" ).replaceWith('<div id="reemplaza-listado2">' + respuestaServer.mensaje + '</div>');
+							$('div#cargando3').hide();
+							
+						}else{
+							  
+						  /// ejecutar una conducta cuando la validacion falla
+							alert("Error llamada" + respuestaServer.mensaje);
+						}
+				  
+					})
+						
+					.fail(function() {
+						alert("ERROR LLAMADA");
+					});				
+			}
+			
+			function obtenerDetaRoteiro() {			
+			
+				archivoValidacion = "http://www.viveomorrazo.com/temporal/deta_roteiro.php?jsoncallback=?"
+
+				$.getJSON( archivoValidacion, { nid: p_nid, ancho: window.innerWidth })
+					.done(function(respuestaServer) {
+		
+						if(respuestaServer.validacion == "ok"){
+//					alert('Vuelve OK ' + respuestaServer.titulo);	
+//					alert('Ruta ' + respuestaServer.ruta);
+						
+							$( "div#reemplaza-detalle2" ).replaceWith( '<div id="reemplaza-detalle2">' + respuestaServer.mensaje + '</div>');
+							
+							$('div#cargando4').hide();
+
+							coordRuta = [];
+							var puntos = respuestaServer.puntos;
+							var puntos2 = puntos.split('#?#');
+							var lonMin = 999;
+							var lonMax = -999;
+							var latMin = 999;
+							var latMax = -999;						
+							
+							for (var i = 0; i < puntos2.length; i++) {
+							
+								var punto = puntos2[i];
+								var coord = punto.split('#-#');
+															
+								if (!isNaN(parseFloat(coord[0]))) {
+									coordRuta.push( new google.maps.LatLng(parseFloat(coord[0]),parseFloat(coord[1])) );
+									if (lonMin > parseFloat(coord[1])) lonMin = parseFloat(coord[1]);	
+									if (lonMax < parseFloat(coord[1])) lonMax = parseFloat(coord[1]);
+									if (latMin > parseFloat(coord[0])) latMin = parseFloat(coord[0]);	
+									if (latMax < parseFloat(coord[0])) latMax = parseFloat(coord[0]);								
+								}	
+
+							}
+							var lonMed = (lonMin + lonMax) / 2;
+							var latMed = (latMin + latMax) / 2;								
+							
+	//						alert('Coordenadas: ' + latMed + ' y ' + lonMed);	
+							
+/*							var centerLocation = new google.maps.LatLng(latMed,lonMed);
+
+							var myOptions = {
+									center: centerLocation,
+									zoom: 13,
+									zoomControl: false,
+									panControl: false,		
+									mapTypeControl: false,
+									scaleControl: false,
+									streetViewControl: false,								
+									mapTypeId: google.maps.MapTypeId.ROADMAP,
+									callback: function () { alert('callback'); }
+							};
+
+							map_element = document.getElementById("map-canvas");
+
+							map = new google.maps.Map(map_element, myOptions);
+
+
+							
+							
+	// alert('Numero puntos ' + coordRuta.length);
+							var flightPath = new google.maps.Polyline({
+								path: coordRuta,
+								geodesic: true,
+								strokeColor: '#FF0000',
+								strokeOpacity: 1.0,
+								strokeWeight: 2
+							});
+
+							flightPath.setMap(map);*/
+							
+							$("h1#titulo-detaroteiro").text(respuestaServer.titulo);
+							
+							Wikiloc = respuestaServer.wikiloc;
+
+							if (Wikiloc) {
+								$("#piepagina2").on("click",function(){ navigator.app.loadUrl(Wikiloc, { openExternal:true });return false; });
+							
+								$('div#piepagina2').show();									
+							}	
+
+						}else{
+							  
+							  /// ejecutar una conducta cuando la validacion falla
+							alert("Error llamada" + respuestaServer.mensaje);
+						}	
+					})
+						
+					.fail(function() {
+						alert("ERROR LLAMADA");
+					})		
+			
+			}
+			
+			function obtenerAgenda() {
+
+				archivoValidacion = "http://www.viveomorrazo.com/temporal/evento_movil.php?jsoncallback=?"
+
+				$.getJSON( archivoValidacion, { })
+					.done(function(respuestaServer) {
+					
+						if(respuestaServer.validacion == "ok"){
+						  
+							/// si la validacion es correcta, muestra la pantalla "home"
+							/// $.mobile.changePage("#home")
+							$( "div#reemplaza-listado3" ).replaceWith('<div id="reemplaza-listado3">' + respuestaServer.mensaje + '</div>');
+							$('div#cargando5').hide();
+							
+						}else{
+							  
+						  /// ejecutar una conducta cuando la validacion falla
+							alert("Error llamada" + respuestaServer.mensaje);
+						}
+				  
+					})
+						
+					.fail(function() {
+						alert("ERROR LLAMADA");
+					});				
+			}	
+
+			function obtenerDetaAgenda() {			
+			
+				archivoValidacion = "http://www.viveomorrazo.com/temporal/deta_agenda.php?jsoncallback=?"
+
+				$.getJSON( archivoValidacion, { nid: p_nid})
+					.done(function(respuestaServer) {
+		
+						if(respuestaServer.validacion == "ok"){
+//					alert('Vuelve OK ' + respuestaServer.titulo);	
+//					alert('Ruta ' + respuestaServer.ruta);
+						
+							$( "div#reemplaza-detalle3" ).replaceWith( '<div id="reemplaza-detalle3">' + respuestaServer.mensaje + '</div>');
+							
+							$('div#cargando6').hide();
+						
+//							$("h1#titulo-detaagenda").text(respuestaServer.titulo);
+							
+							UrlContenido = respuestaServer.url;
+
+							if (respuestaServer.longitud != 0) {
+				
+								var centerLocation = new google.maps.LatLng(respuestaServer.latitud,respuestaServer.longitud);
+
+								var myOptions = {
+									center: centerLocation,
+									zoom: 15,
+									zoomControl: false,
+									panControl: false,		
+									mapTypeControl: false,
+									scaleControl: false,
+									streetViewControl: false,								
+									mapTypeId: google.maps.MapTypeId.ROADMAP,
+									callback: function () { alert('callback'); }
+								};
+
+								map_element = document.getElementById("map-canvas");
+
+								map = new google.maps.Map(map_element, myOptions);
+
+								var marker = new google.maps.Marker({
+										position: centerLocation,
+										map: map,
+										title: respuestaServer.titulo,
+				//							zIndex: beach[3],
+				//							icon: icono,
+				//							animation: google.maps.Animation.DROP,
+								});
+									
+								$("h1#titulo-detalle").text(respuestaServer.titulo);
+									
+								var addressLongLat = respuestaServer.latitud + ',' + respuestaServer.longitud;
+								var addressOrigen = p_latitud + ',' + p_longitud;
+								var urlRuta = 'http://www.google.es/maps/dir/' + addressOrigen + '/' + addressLongLat + '/@' + addressOrigen;
+								
+				// IOS: usar window.open("http://maps.apple.com/?q="+addressLongLat, '_system');					
+									
+								UrlContenido = respuestaServer.url;
+									
+								DetalleTitulo = respuestaServer.nombrelugar;
+
+								$("#piepagina3").on("click",function(){ navigator.app.loadUrl(urlRuta, { openExternal:true });return false; });
+									
+								$('div#piepagina3').show();		
+			
+							}
+						
+						}else{
+							  
+							  /// ejecutar una conducta cuando la validacion falla
+							alert("Error llamada" + respuestaServer.mensaje);
+						}	
+					})
+						
+					.fail(function() {
+						alert("ERROR LLAMADA");
+					})		
+			
+			}		
+
+			function enlazarGoogle(localidad) {
+			
+				if (localidad == 'B') {  var latDestino = '42.3264807';  var lonDestino = '-8.7845601'; var titulo = 'Concello de Bueu';}
+				if (localidad == 'C') {  var latDestino = '42.263737';  var lonDestino = '-8.780407'; var titulo = 'Concello de Cangas';}
+				if (localidad == 'M') {  var latDestino = '42.2871807';  var lonDestino = '-8.7331391'; var titulo = 'Concello de Moaña';}
+								
+				var addressLongLat = latDestino + ',' + lonDestino;
+				var addressOrigen = p_latitud + ',' + p_longitud;
+				var urlRuta = 'http://www.google.es/maps/dir/' + addressOrigen + '/' + addressLongLat + '/@' + addressOrigen;
+								
+			// IOS: usar window.open("http://maps.apple.com/?q="+addressLongLat, '_system');					
+// alert(urlRuta);
+				navigator.app.loadUrl(urlRuta, { openExternal:true });
+
+			}
+			
+		</script>		
+
+		<script type="text/javascript">
+		
+			function CompartirSociales() {
+
+				window.plugins.socialsharing.share(DetalleTitulo, null, null, UrlContenido);
+			
+			}
+		
+		</script>		
+		
+    </body>
+</html>
