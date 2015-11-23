@@ -75,6 +75,7 @@
 			<div data-role="content" id="menu-principal">
 				<p class="explicacion">A continuaci&oacute;n debe escanear el c&oacute;digo del carro...</p>
 				<p class="botonEscaneo">ESCANEAR</p>
+				<p class="botonValidar">VALIDAR ESCANEOS</p>
 			</div>
 
 		</div>	
@@ -94,6 +95,8 @@
 			function onDeviceReady() {
 //				alert(window.innerWidth + ' x ' + window.innerHeight);
 
+				$("p.botonEscaneo").on("click",function(){ scan();});
+				
 				setTimeout(function() {
 					$.mobile.changePage("#pantalla2", { transition: "slide", reverse: false });
 				}, 5000);				
@@ -130,11 +133,16 @@
 			function carousel_lecturas_sincrono() {
 				
 				alert("Encuentro " + pasoSincrono);
+				
+				if ( (pasoSincrono%2)&(pasoSincrono>1) ) {
+					$('p.botonValidar').show();
+				}
+				else {
+					$('p.botonValidar').hide();
+				}
 				$('#pantalla3 h1').text('Listado carro');
 				$('p.explicacion').text('A continuación escanee el codigo que figura en el LISTADO DE CARRO. Pulse el siguiente boton.');
-				
-				$("p.botonEscaneo").on("click",function(){ scan();});
-				
+							
 			}
 			
 			
