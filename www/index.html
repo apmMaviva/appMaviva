@@ -73,9 +73,8 @@
 			</div>
 			
 			<div data-role="content" id="menu-principal">
-				<p>A continuaci&oacute;n debe escanear el c&oacute;digo del carro...</p>
-				<p class="botonEscaneo" onclick="scan();">ESCANEAR</p>
-				
+				<p class="explicacion">A continuaci&oacute;n debe escanear el c&oacute;digo del carro...</p>
+				<p class="botonEscaneo">ESCANEAR</p>
 			</div>
 
 		</div>	
@@ -102,7 +101,9 @@
 				p_subtipo = subtipo;
 				p_nid = nid;
 				$.mobile.changePage("#" + midiv, { transition: "slide", reverse: false });
-
+				if (midiv == "pantalla3") {
+					carousel_lecturas_sincrono();
+				}
 			}
 
 			function cambiarSeccionReversa(midiv) {
@@ -111,9 +112,8 @@
 			
 			function onBackKeyDown() {
 				var hash = window.location.hash;
-			alert("Tengo hash: " + hash);					
+//			alert("Tengo hash: " + hash);					
 				if (hash == '#pantalla2') {
-					alert("Hago notifi");
 					navigator.notification.confirm('¿Deseas salir de la aplicación?', CerrarApp, 'Maviva','SI,NO');
 				}			
 				else {
@@ -122,36 +122,52 @@
 			}
 			
 			function CerrarApp() {
-				alert("Cierro");
 				navigator.app.exitApp();
 			}		
 
+			
+			function carousel_lecturas_sincrono() {
+				
+				var paso = 1;
+				
+				$('#pantalla3 h1').text('Listado carro1');
+				$('p.explicacion').text('A continuación escanee el codigo que figura en el LISTADO DE CARRO 1. Pulse el siguiente boton.');
+				
+				var res = scan();
+				
+				alert("Vuelvo y obtengo " + res);
+			}
+			
+			
+			
 
 			function scan() {
-				alert("pulso escaneo");
+
 				var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
 				scanner.scan( function (result) { 
 
+						if (result.cancelled) {
+							alert("Lectura cancelada");
+							return -1;
+						}
+						else {
+							return result.text;
+						} 
+
+						/*
 						alert("We got a barcode\n" + 
 						"Result: " + result.text + "\n" + 
 						"Format: " + result.format + "\n" + 
 						"Cancelled: " + result.cancelled);  
 
-					   console.log("Scanner result: \n" +
-							"text: " + result.text + "\n" +
-							"format: " + result.format + "\n" +
-							"cancelled: " + result.cancelled + "\n");
-						document.getElementById("info").innerHTML = result.text;
-						console.log(result);
-						/*
 						if (args.format == "QR_CODE") {
 							window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
 						}
 						*/
 
 					}, function (error) { 
-						console.log("Scanning failed: ", error); 
+						alert("Se ha producido un error de lectura"); 
 					} );			
 			
 			}
