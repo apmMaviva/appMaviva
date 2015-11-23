@@ -113,7 +113,8 @@
 				var hash = window.location.hash;
 			alert("Tengo hash: " + hash);					
 				if (hash == '#pantalla2') {
-					navigator.notification.confirm('¿Deseas salir da aplicación?', CerrarApp, 'Maviva','SI,NO');
+					alert("Hago notifi");
+					navigator.notification.confirm('¿Deseas salir de la aplicación?', CerrarApp, 'Maviva','SI,NO');
 				}			
 				else {
 					history.go(-1);
@@ -121,6 +122,7 @@
 			}
 			
 			function CerrarApp() {
+				alert("Cierro");
 				navigator.app.exitApp();
 			}		
 
