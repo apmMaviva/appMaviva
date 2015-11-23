@@ -60,7 +60,7 @@
 			</div>
 			
 			<div data-role="content" id="menu-principal">
-				<div class="boton-entrada" onclick="cambiarSeccion('pantalla3',null,null,null);"><div class="estilo-boton-principal" style="background-color: #fbb700;"><i class="fa fa-truck"></i><p>S&Iacute;NCRONOS</p></div></div>	
+				<div class="boton-entrada" onclick="cambiarSeccion('pantalla3');"><div class="estilo-boton-principal" style="background-color: #fbb700;"><i class="fa fa-truck"></i><p>S&Iacute;NCRONOS</p></div></div>	
 			</div>
 
 		</div>			
@@ -99,10 +99,7 @@
 				}, 5000);				
 			}
 
-			function cambiarSeccion(midiv,tipo,subtipo,nid) {
-				p_tipo = tipo;
-				p_subtipo = subtipo;
-				p_nid = nid;
+			function cambiarSeccion(midiv) {
 				$.mobile.changePage("#" + midiv, { transition: "slide", reverse: false });
 				if (midiv == "pantalla3") {
 					pasoSincrono = 1;
@@ -132,7 +129,8 @@
 			
 			function carousel_lecturas_sincrono() {
 				
-				$('#pantalla3 h1').text('Listado carro ');
+				alert("Encuentro " + pasoSincrono);
+				$('#pantalla3 h1').text('Listado carro');
 				$('p.explicacion').text('A continuación escanee el codigo que figura en el LISTADO DE CARRO. Pulse el siguiente boton.');
 				
 				$("p.botonEscaneo").on("click",function(){ scan();});
@@ -172,8 +170,6 @@
 								alert("Se ha producido un error de lectura"); 
 							} );	
 							
-				alert("Fin lectura " + codigoLeido);	
-				
 				pasoSincrono = pasoSincrono + 1;
 			}
 			
