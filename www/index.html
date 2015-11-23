@@ -104,8 +104,11 @@
 
 			function cambiarSeccion(midiv) {
 				$.mobile.changePage("#" + midiv, { transition: "slide", reverse: false });
+
 				if (midiv == "pantalla3") {
 					pasoSincrono = 1;
+					alert("Estoy");
+					
 					carousel_lecturas_sincrono();
 				}
 			}
@@ -134,7 +137,7 @@
 				
 				alert("Encuentro " + pasoSincrono);
 				
-				if (pasoSincrono%2) {
+				if ( (pasoSincrono>2)&&(pasoSincrono%2) ) {
 					$('p.botonValidar').show();
 				}
 				else {
