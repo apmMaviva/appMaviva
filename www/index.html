@@ -90,8 +90,11 @@
 			document.addEventListener("backbutton", onBackKeyDown, false);
 			
 			function onDeviceReady() {
-				alert(window.innerWidth + ' x ' + window.innerHeight);
-				$.mobile.changePage("#pantalla2", { transition: "slide", reverse: false });
+//				alert(window.innerWidth + ' x ' + window.innerHeight);
+
+				setTimeout(function() {
+					$.mobile.changePage("#pantalla2", { transition: "slide", reverse: false });
+				}, 5000);				
 			}
 
 			function cambiarSeccion(midiv,tipo,subtipo,nid) {
@@ -107,7 +110,14 @@
 			}
 			
 			function onBackKeyDown() {
-				history.go(-1);
+				var hash = window.location.hash;
+								
+				if (hash == '#pantalla2') {
+					navigator.notification.confirm('¿Deseas salir da aplicación?', CerrarApp, 'Maviva','SI,NO');
+				}			
+				else {
+					history.go(-1);
+				}	
 			}
 			
 			function CerrarApp(index) {
