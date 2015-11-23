@@ -85,6 +85,7 @@
         <script type="text/javascript">
 				
 			var codigoLeido;	
+			var pasoSincrono;
 				
 			document.addEventListener("deviceready", onDeviceReady, false);
 				
@@ -104,7 +105,8 @@
 				p_nid = nid;
 				$.mobile.changePage("#" + midiv, { transition: "slide", reverse: false });
 				if (midiv == "pantalla3") {
-					carousel_lecturas_sincrono(1);
+					pasoSincrono = 1;
+					carousel_lecturas_sincrono();
 				}
 			}
 
@@ -128,22 +130,22 @@
 			}		
 
 			
-			function carousel_lecturas_sincrono(paso) {
+			function carousel_lecturas_sincrono() {
 				
 				$('#pantalla3 h1').text('Listado carro ');
 				$('p.explicacion').text('A continuación escanee el codigo que figura en el LISTADO DE CARRO. Pulse el siguiente boton.');
 				
-				$("p.botonEscaneo").on("click",function(){ scan(paso);});
+				$("p.botonEscaneo").on("click",function(){ scan();});
 				
 			}
 			
 			
 			
 
-			function scan(paso) {
+			function scan() {
 
 				var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-				alert("Tengo paso " + paso);
+				alert("Tengo paso " + pasoSincrono);
 				
 				scanner.scan( function (result) { 
 
@@ -171,6 +173,8 @@
 							} );	
 							
 				alert("Fin lectura " + codigoLeido);	
+				
+				pasoSincrono = pasoSincrono + 1;
 			}
 			
 			
