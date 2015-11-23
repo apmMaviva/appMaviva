@@ -84,6 +84,8 @@
 
         <script type="text/javascript">
 				
+			var codigoLeido;	
+				
 			document.addEventListener("deviceready", onDeviceReady, false);
 				
 			document.addEventListener("backbutton", onBackKeyDown, false);
@@ -102,7 +104,7 @@
 				p_nid = nid;
 				$.mobile.changePage("#" + midiv, { transition: "slide", reverse: false });
 				if (midiv == "pantalla3") {
-					carousel_lecturas_sincrono();
+					carousel_lecturas_sincrono(1);
 				}
 			}
 
@@ -126,14 +128,12 @@
 			}		
 
 			
-			function carousel_lecturas_sincrono() {
+			function carousel_lecturas_sincrono(var paso) {
 				
-				var paso = 1;
+				$('#pantalla3 h1').text('Listado carro ');
+				$('p.explicacion').text('A continuación escanee el codigo que figura en el LISTADO DE CARRO. Pulse el siguiente boton.');
 				
-				$('#pantalla3 h1').text('Listado carro 1');
-				$('p.explicacion').text('A continuación escanee el codigo que figura en el LISTADO DE CARRO 1. Pulse el siguiente boton.');
-				
-				$("p.botonEscaneo").on("click",function(){ var res = scan();return res; });
+				$("p.botonEscaneo").on("click",function(){ scan(paso);});
 				
 				
 				alert("Vuelvo y obtengo " + res);
@@ -145,15 +145,16 @@
 			function scan() {
 
 				var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-
-				var res = scanner.scan( function (result) { 
+				alert("Tengo paso " + paso);
+				
+				scanner.scan( function (result) { 
 
 								if (result.cancelled) {
 									alert("Lectura cancelada");
-									return -1;
+									codigoLeido = -1;
 								}
 								else {
-									return result.text;
+									codigoLeido = result.text;
 								} 
 
 								/*
@@ -170,9 +171,8 @@
 							}, function (error) { 
 								alert("Se ha producido un error de lectura"); 
 							} );	
-				alert("Fin lectura " + res);
-				return res;	
-			
+							
+				alert("Fin lectura " + codigoLeido);	
 			}
 			
 			
