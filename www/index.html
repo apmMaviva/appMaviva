@@ -130,10 +130,11 @@
 				
 				var paso = 1;
 				
-				$('#pantalla3 h1').text('Listado carro1');
+				$('#pantalla3 h1').text('Listado carro 1');
 				$('p.explicacion').text('A continuación escanee el codigo que figura en el LISTADO DE CARRO 1. Pulse el siguiente boton.');
 				
-				var res = scan();
+				$("p.botonEscaneo").on("click",function(){ var res = scan();return res; });
+				
 				
 				alert("Vuelvo y obtengo " + res);
 			}
@@ -145,30 +146,32 @@
 
 				var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
-				scanner.scan( function (result) { 
+				var res = scanner.scan( function (result) { 
 
-						if (result.cancelled) {
-							alert("Lectura cancelada");
-							return -1;
-						}
-						else {
-							return result.text;
-						} 
+								if (result.cancelled) {
+									alert("Lectura cancelada");
+									return -1;
+								}
+								else {
+									return result.text;
+								} 
 
-						/*
-						alert("We got a barcode\n" + 
-						"Result: " + result.text + "\n" + 
-						"Format: " + result.format + "\n" + 
-						"Cancelled: " + result.cancelled);  
+								/*
+								alert("We got a barcode\n" + 
+								"Result: " + result.text + "\n" + 
+								"Format: " + result.format + "\n" + 
+								"Cancelled: " + result.cancelled);  
 
-						if (args.format == "QR_CODE") {
-							window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
-						}
-						*/
+								if (args.format == "QR_CODE") {
+									window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
+								}
+								*/
 
-					}, function (error) { 
-						alert("Se ha producido un error de lectura"); 
-					} );			
+							}, function (error) { 
+								alert("Se ha producido un error de lectura"); 
+							} );	
+				alert("Fin lectura " + res);
+				return res;	
 			
 			}
 			
