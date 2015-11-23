@@ -111,7 +111,7 @@
 			
 			function onBackKeyDown() {
 				var hash = window.location.hash;
-								
+			alert("Tengo hash: " + hash);					
 				if (hash == '#pantalla2') {
 					navigator.notification.confirm('¿Deseas salir da aplicación?', CerrarApp, 'Maviva','SI,NO');
 				}			
@@ -120,10 +120,8 @@
 				}	
 			}
 			
-			function CerrarApp(index) {
-				if (index == 1) {
-					navigator.app.exitApp();
-				}	
+			function CerrarApp() {
+				navigator.app.exitApp();
 			}		
 
 
