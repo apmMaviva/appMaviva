@@ -103,7 +103,6 @@
 
         <script type="text/javascript">
 				
-			var codigoLeido;	
 			var pasoSincrono;
 			var procesaCarro;
 			var tablaCarros=[];
@@ -130,7 +129,7 @@
 				if (midiv == "pantalla3") {
 					pasoSincrono = 1;
 					procesaCarro = 1;
-					carousel_lecturas_sincrono();
+					carouselLecturasSincrono();
 				}
 			}
 
@@ -154,7 +153,7 @@
 			}		
 
 			
-			function carousel_lecturas_sincrono() {
+			function carouselLecturasSincrono() {
 				
 				alert("Encuentro " + pasoSincrono + " y " + procesaCarro);
 				
@@ -194,12 +193,12 @@
 								}
 								else {
 									alert("Lectura OK, " + result.text);
-									codigoLeido = result.text;
 									procesarLectura(result.text);
 									pasoSincrono = pasoSincrono + 1;
 									if (pasoSincrono % 2 == 0) {
 										procesaCarro = procesaCarro + 1;
-									}									
+									}	
+									carouselLecturasSincrono();		
 								} 
 
 								/*
@@ -216,39 +215,23 @@
 							}, function (error) { 
 								alert("Se ha producido un error de lectura"); 
 							} );	
-/*				
-				if (codigoLeido != -1) {
-				alert("Lectura OK " + codigoLeido);
-					procesarLectura(codigoLeido);
-				alert("Salgo Lectura OK");	
-					pasoSincrono = pasoSincrono + 1;
-					if (pasoSincrono % 2 == 0) {
-						procesaCarro = procesaCarro + 1;
-					}
-				alert("Acabo con " + pasoSincrono + " y " + procesaCarro);
-									
-				}
-				else {
-				alert("Lectura NOK");
-				}	*/			
-				
-				cambiarSeccionReversa('pantalla3');
+
 			}
 			
 			
 			function procesarLectura(codigo) {
 			alert("entra procesar lectura "+pasoSincrono);
 				if (pasoSincrono%2) {
-				alert("procesar lectura1: " + codigoLeido + " y " + codigo); 
-					var pos = codigoLeido.indexOf('F') - 1;
+				alert("procesar lectura1: " + codigo); 
+					var pos = codigo.indexOf('F') - 1;
 				alert("posicion lectura1: " + pos);	
-					tablaCarros.push(codigoLeido.substr(1,pos));
-					alert("Numero carro " + codigoLeido.substr(1,codigoLeido.indexOf('F') - 1));
+					tablaCarros.push(codigo.substr(1,pos));
+					alert("Numero carro " + codigo.substr(1,codigo.indexOf('F') - 1));
 				}
 				else {
-				alert("procesar lectura2 " + codigoLeido);
-					tablaPosiciones.push(codigoLeido);
-					alert("en posicion " + codigoLeido);
+				alert("procesar lectura2 " + codigo);
+					tablaPosiciones.push(codigo);
+					alert("en posicion " + codigo);
 					
 					if (procesaCarro > 1) {
 						for (x=1;x<procesaCarro;x++){
@@ -259,7 +242,7 @@
 								errorOrdenacion = true;
 							} 							
 						}
-						alert("en posicion " + codigoLeido);
+						alert("en posicion " + codigo);
 						if (errorOrdenacion) cambiarSeccion('pantalla4');
 					}
 				}
