@@ -212,8 +212,8 @@
 							} );	
 				
 				if (codigoLeido != -1) {
-				alert("Lectura OK");
-					procesarLectura();
+				alert("Lectura OK " + codigoLeido);
+					procesarLectura(codigoLeido);
 				alert("Salgo Lectura OK");	
 					pasoSincrono = pasoSincrono + 1;
 					if (pasoSincrono % 2 == 0) {
@@ -230,10 +230,10 @@
 			}
 			
 			
-			function procesarLectura() {
+			function procesarLectura(codigo) {
 			alert("entra procesar lectura "+pasoSincrono);
 				if (pasoSincrono%2) {
-				alert("procesar lectura1: " + codigoLeido);
+				alert("procesar lectura1: " + codigoLeido + " y " + codigo); 
 					var pos = codigoLeido.indexOf('F') - 1;
 				alert("posicion lectura1: " + pos);	
 					tablaCarros.push(codigoLeido.substr(1,pos));
