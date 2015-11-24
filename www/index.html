@@ -30,12 +30,9 @@
         <link rel="stylesheet" type="text/css" href="css/index.css" />
 		<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
-		<link rel="stylesheet" type="text/css" href="swiper/dist/css/swiper.min.css" />
 		<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
 		<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
-
         <script type="text/javascript" src="cordova.js"></script>
-		<script type="text/javascript" src="swiper/dist/js/swiper.min.js"></script>
 		
         <title>Maviva</title>
 	
@@ -46,8 +43,8 @@
 		<div data-role="page" id="pantalla1" class="pantalla">
 			<div data-role="content">
 				<div class="loader">	
-					<i class="fa fa-cog"></i>
-					<h3>Cargando...</h3>
+					<i class="fa fa-cog fa-spin"></i>
+					<h3>CARGANDO...</h3>
 				</div>
 			</div>
 		</div>				
@@ -60,7 +57,7 @@
 			</div>
 			
 			<div data-role="content" id="menu-principal">
-				<div class="boton-entrada" onclick="cambiarSeccion('pantalla3');"><div class="estilo-boton-principal" style="background-color: #fbb700;"><i class="fa fa-truck"></i><p>S&Iacute;NCRONOS</p></div></div>	
+				<div class="boton-entrada" onclick="cambiarSeccion('pantalla3');"><div class="estilo-boton-principal" style="background-color: #fbb700;text-shadow:none;"><i class="fa fa-truck"></i><p>S&Iacute;NCRONOS</p></div></div>	
 			</div>
 
 		</div>			
@@ -73,9 +70,17 @@
 			</div>
 			
 			<div data-role="content" id="menu-principal">
-				<p class="explicacion">A continuaci&oacute;n debe escanear el c&oacute;digo del carro...</p>
-				<p class="botonEscaneo">ESCANEAR</p>
-				<p class="botonValidar">VALIDAR ESCANEOS</p>
+				<div class="zona-img-code1">
+					<img class="imagen-code1" src="img/codigo1.jpg">
+				</div>	
+				<div class="zona-img-code2">	
+					<img class="imagen-code2" src="img/codigo2.jpg">
+				</div>	
+				<div class="explicacion">
+					<p class="explicacion-texto">A continuaci&oacute;n debe escanear el c&oacute;digo del carro...</p>
+					<p class="botonEscaneo">ESCANEAR</p>
+					<p class="botonValidar">VALIDAR ESCANEOS</p>
+				</div>	
 			</div>
 
 		</div>	
@@ -100,6 +105,7 @@
 				
 			var codigoLeido;	
 			var pasoSincrono;
+			var procesaCarro;
 				
 			document.addEventListener("deviceready", onDeviceReady, false);
 				
@@ -120,8 +126,7 @@
 
 				if (midiv == "pantalla3") {
 					pasoSincrono = 1;
-					alert("Estoy");
-					
+					procesaCarro = 1;
 					carousel_lecturas_sincrono();
 				}
 			}
@@ -148,7 +153,7 @@
 			
 			function carousel_lecturas_sincrono() {
 				
-				alert("Encuentro " + pasoSincrono);
+				alert("Encuentro " + pasoSincrono + " y " + procesaCarro);
 				
 				if ( (pasoSincrono>2)&&(pasoSincrono%2) ) {
 					$('p.botonValidar').show();
@@ -156,9 +161,18 @@
 				else {
 					$('p.botonValidar').hide();
 				}
-				$('#pantalla3 h1').text('Listado carro');
-				$('p.explicacion').text('A continuación escanee el codigo que figura en el LISTADO DE CARRO. Pulse el siguiente boton.');
-							
+				if (pasoSincrono%2) {
+					$('#pantalla3 h1').text('CARRO ' + pasoSincrono + ": LISTADO");
+					$('p.explicacion-texto').text('A continuación escanee el codigo que figura en el LISTADO DE CARRO.');
+					$('.zona-img-code1').show();
+					$('.zona-img-code2').hide();
+				}
+				else {
+					$('#pantalla3 h1').text('CARRO ' + pasoSincrono + ": POSICIÓN");
+					$('p.explicacion-texto').text('A continuación escanee el codigo de posición.');
+					$('.zona-img-code2').show();
+					$('.zona-img-code1').hide();					
+				}	
 			}
 			
 			
