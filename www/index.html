@@ -233,12 +233,14 @@
 			function procesarLectura() {
 			alert("entra procesar lectura "+pasoSincrono);
 				if (pasoSincrono%2) {
-				alert("procesar lectura1");
-					tablaCarros.push(codigoLeido.substr(1,codigoLeido.indexOf('F') - 1));
+				alert("procesar lectura1: " + codigoLeido);
+					var pos = codigoLeido.indexOf('F') - 1;
+				alert("posicion lectura1: " + pos);	
+					tablaCarros.push(codigoLeido.substr(1,pos));
 					alert("Numero carro " + codigoLeido.substr(1,codigoLeido.indexOf('F') - 1));
 				}
 				else {
-				alert("procesar lectura2");
+				alert("procesar lectura2 " + codigoLeido);
 					tablaPosiciones.push(codigoLeido);
 					alert("en posicion " + codigoLeido);
 					
