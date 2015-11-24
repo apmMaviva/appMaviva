@@ -211,7 +211,7 @@
 			function scan() {
 
 				var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-				alert("Scan: paso " + pasoSincrono + " y " + procesaCarro);
+//				alert("Scan: paso " + pasoSincrono + " y " + procesaCarro);
 				
 				scanner.scan( function (result) { 
 
@@ -247,7 +247,7 @@
 			
 			
 			function procesarLectura(codigo) {
-			alert("longitudes antes " + tablaPosiciones.length + " y " + tablaCarros.length);
+//			alert("longitudes antes " + tablaPosiciones.length + " y " + tablaCarros.length);
 				if (pasoSincrono%2) {
 					var pos = codigo.indexOf('F') - 1;
 					tablaCarros.push(codigo.substr(1,pos));
@@ -267,12 +267,12 @@
 						if (errorOrdenacion) cambiarSeccion('pantalla4');
 					}
 				}
-			alert("longitudes despues " + tablaPosiciones.length + " y " + tablaCarros.length);
+//			alert("longitudes despues " + tablaPosiciones.length + " y " + tablaCarros.length);
 			}		
 			
 			
 			function procesarResultado() {
-			alert("Resultado " + tablaPosiciones.length + " y " + tablaCarros.length);
+//			alert("Resultado " + tablaPosiciones.length + " y " + tablaCarros.length);
 				if (errorOrdenacion) {
 					$('.zona-img-nok').show();
 					$('.zona-img-ok').hide();
