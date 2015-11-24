@@ -125,8 +125,8 @@ color: rgb(2,89,73);
     animation: rotating 2s linear infinite;
 	font-size: 70px;
 }
-.zona-img-code1 img, .zona-img-code2 img {width:100%;}
-.zona-img-code1, .zona-img-code2 {max-height:400px; overflow:hidden;}
+.zona-img-code1 img, .zona-img-code2 img, .zona-img-ok img, .zona-img-nok img {width:100%;}
+.zona-img-code1, .zona-img-code2, .zona-img-ok, .zona-img-nok {max-height:400px; overflow:hidden;}
 .explicacion {
     background-color: #fbb700;
     text-shadow: none;
@@ -140,6 +140,17 @@ color: rgb(2,89,73);
     font-size: 28px;
     padding: 8px 15px;
 	font-weight:bold;
+}
+table#resumen-carro {
+width:80%;
+margin-left:10%;
+border:2px solid grey;
+background-color: white;
+font-size: 20px;
+margin-top: 20px;
+}
+#resumen-carro td, #resumen-carro th{
+border:1px dotted grey;
 }
 /*************************
 --- PANTALLA PRESENTACION ---

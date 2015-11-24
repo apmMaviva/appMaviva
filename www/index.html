@@ -57,7 +57,7 @@
 			</div>
 			
 			<div data-role="content" id="menu-principal">
-				<div class="boton-entrada" onclick="cambiarSeccion('pantalla3');"><div class="estilo-boton-principal" style="background-color: #fbb700;text-shadow:none;"><i class="fa fa-truck"></i><p>S&Iacute;NCRONOS</p></div></div>	
+				<div class="boton-entrada" onclick="cambiarSeccion('pantalla4');"><div class="estilo-boton-principal" style="background-color: #fbb700;text-shadow:none;"><i class="fa fa-truck"></i><p>S&Iacute;NCRONOS</p></div></div>	
 			</div>
 
 		</div>			
@@ -79,7 +79,7 @@
 				<div class="explicacion">
 					<p class="explicacion-texto">A continuaci&oacute;n debe escanear el c&oacute;digo del carro...</p>
 					<p class="botonEscaneo">ESCANEAR</p>
-					<p class="botonValidar">VALIDAR ESCANEOS</p>
+					<p class="botonValidar" onclick="cambiarSeccion('pantalla4');">FINALIZAR</p>
 				</div>	
 			</div>
 
@@ -93,8 +93,17 @@
 			</div>
 			
 			<div data-role="content" id="menu-principal">
-				<p class="explicacion">CARRO SINCRONO PRESENTADO DE FORMA CORRECTO</p>
-				<p class="botonFinalizar">FINALIZAR</p>
+				<div class="zona-img-ok">	
+					<img class="imagen-codeOK" src="img/codigo-ok.jpg">
+				</div>
+				<div class="zona-img-nok">	
+					<img class="imagen-codeNOK" src="img/codigo-nok.jpg">
+				</div>					
+				<div class="explicacion">
+					<p class="explicacion-texto">CARRO SINCRONO PRESENTADO DE FORMA CORRECTA</p>
+					<div class="zona-tabla"></div>
+					<p class="botonFinalizar">FINALIZAR</p>
+				</div>
 			</div>
 
 		</div>			
@@ -118,6 +127,8 @@
 
 				$("p.botonEscaneo").on("click",function(){ scan();});
 				
+				$("p.botonFinalizar").on("click",function(){ cambiarSeccionReversa('pantalla2');});
+				
 				setTimeout(function() {
 					$.mobile.changePage("#pantalla2", { transition: "slide", reverse: false });
 				}, 2000);				
@@ -131,6 +142,10 @@
 					procesaCarro = 1;
 					carouselLecturasSincrono();
 				}
+				
+				if (midiv == "pantalla4") {
+					procesarResultado();
+				}				
 			}
 
 			function cambiarSeccionReversa(midiv) {
@@ -248,6 +263,31 @@
 				}
 			alert("salir de procesar lectura");	
 			}		
+			
+			
+			function procesarResultado() {
+				if (errorOrdenacion) {
+					$('.zona-img-nok').show();
+					$('.zona-img-ok').hide();
+					$('p.explicacion-texto').text('Se han detectado errores en la presentación del carro.');
+				}
+				else {
+					$('.zona-img-nok').hide();
+					$('.zona-img-ok').show();			
+					$('p.explicacion-texto').text('La ordenación del carro es correcta.');
+				}
+				
+				var cadena = '<table id="resumen-carro"><tr><th>NÚMERO CARRO</th><th>POSICIÓN</th></tr>';
+				
+				for (x=1;x<procesaCarro;x++){
+					cadena = cadena + '<tr><td>' + tablaCarros[x] + '</td><td>' + tablaPosiciones[x] + '</td></tr>';
+				}
+				
+				cadena = cadena + '</table>';
+				
+				$('.zona-tabla').replaceWith('<div class="zona-tabla">' + cadena + '</div>');
+			}
+			
 			
 		</script>		
 
