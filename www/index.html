@@ -164,6 +164,7 @@
 				else {
 					$('p.botonValidar').hide();
 				}
+				
 				if (pasoSincrono%2) {
 					$('#pantalla3 h1').text('CARRO ' + pasoSincrono + ": LISTADO");
 					$('p.explicacion-texto').text('A continuación escanee el código que figura en el LISTADO DE CARRO.');
@@ -213,6 +214,7 @@
 				if (codigoLeido != -1) {
 				alert("Lectura OK");
 					procesarLectura();
+				alert("Salgo Lectura OK");	
 					pasoSincrono = pasoSincrono + 1;
 					if (pasoSincrono % 2 == 0) {
 						procesaCarro = procesaCarro + 1;
@@ -229,7 +231,7 @@
 			
 			
 			function procesarLectura() {
-			
+			alert("entra procesar lectura");
 				if (pasoSincrono%2) {
 					tablaCarros.push(codigoLeido.substr(1,codigoLeido.indexOf('F') - 1));
 					alert("Numero carro " + codigoLeido.substr(1,codigoLeido.indexOf('F') - 1));
