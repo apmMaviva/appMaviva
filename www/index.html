@@ -217,12 +217,14 @@
 					if (pasoSincrono % 2 == 0) {
 						procesaCarro = procesaCarro + 1;
 					}
+				alert("Acabo con " + pasoSincrono + " y " + procesaCarro);
+									
 				}
 				else {
 				alert("Lectura NOK");
 				}				
 				
-				cambiarSeccionReversa('pantalla4');
+				cambiarSeccionReversa('pantalla3');
 			}
 			
 			
@@ -245,6 +247,7 @@
 								errorOrdenacion = true;
 							} 							
 						}
+						alert("en posicion " + codigoLeido);
 						if (errorOrdenacion) cambiarSeccion('pantalla4');
 					}
 				}
