@@ -106,8 +106,8 @@
 			var codigoLeido;	
 			var pasoSincrono;
 			var procesaCarro;
-			var tablaCarros;
-			var tablaPosiciones;
+			var tablaCarros=[];
+			var tablaPosiciones=[];
 			var errorOrdenacion = false;
 				
 			document.addEventListener("deviceready", onDeviceReady, false);
@@ -231,12 +231,14 @@
 			
 			
 			function procesarLectura() {
-			alert("entra procesar lectura");
+			alert("entra procesar lectura "+pasoSincrono);
 				if (pasoSincrono%2) {
+				alert("procesar lectura1");
 					tablaCarros.push(codigoLeido.substr(1,codigoLeido.indexOf('F') - 1));
 					alert("Numero carro " + codigoLeido.substr(1,codigoLeido.indexOf('F') - 1));
 				}
 				else {
+				alert("procesar lectura2");
 					tablaPosiciones.push(codigoLeido);
 					alert("en posicion " + codigoLeido);
 					
@@ -253,7 +255,7 @@
 						if (errorOrdenacion) cambiarSeccion('pantalla4');
 					}
 				}
-				
+			alert("salir de procesar lectura");	
 			}		
 			
 		</script>		
