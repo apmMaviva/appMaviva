@@ -213,7 +213,7 @@
 //									alert("Lectura OK, " + result.text);
 									procesarLectura(result.text);
 									pasoSincrono = pasoSincrono + 1;
-									if (pasoSincrono % 2 == 0) {
+									if (pasoSincrono % 2) {
 										procesaCarro = procesaCarro + 1;
 									}	
 									carouselLecturasSincrono();		
