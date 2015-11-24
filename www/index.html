@@ -153,6 +153,15 @@
 
 			function cambiarSeccionReversa(midiv) {
 				$.mobile.changePage("#" + midiv, { transition: "slide", reverse: true });
+
+				if (midiv == "pantalla2") {
+					pasoSincrono = 1;
+					procesaCarro = 1;
+					var tablaCarros=[];
+					var tablaPosiciones=[];					
+					errorOrdenacion = false;
+				}
+				
 			}
 			
 			function onBackKeyDown() {
@@ -277,7 +286,7 @@
 				
 				var cadena = '<table id="resumen-carro"><tr><th>NÚMERO CARRO</th><th>POSICIÓN</th></tr>';
 				
-				for (x=0;x<procesaCarro-1;x++){
+				for (x=0;x<tablaCarros.length;x++){
 					cadena = cadena + '<tr><td>' + tablaCarros[x] + '</td><td>' + tablaPosiciones[x] + '</td></tr>';
 				}
 				
