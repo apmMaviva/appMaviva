@@ -202,7 +202,7 @@
 			function scan() {
 
 				var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-//				alert("Tengo paso " + pasoSincrono);
+				alert("Tengo paso " + pasoSincrono + " y " + procesaCarro);
 				
 				scanner.scan( function (result) { 
 
@@ -238,18 +238,13 @@
 			
 			
 			function procesarLectura(codigo) {
-//			alert("entra procesar lectura "+pasoSincrono);
+
 				if (pasoSincrono%2) {
-//				alert("procesar lectura1: " + codigo); 
 					var pos = codigo.indexOf('F') - 1;
-//				alert("posicion lectura1: " + pos);	
 					tablaCarros.push(codigo.substr(1,pos));
-//					alert("Numero carro " + codigo.substr(1,codigo.indexOf('F') - 1));
 				}
 				else {
-//				alert("procesar lectura2 " + codigo);
 					tablaPosiciones.push(codigo);
-//					alert("en posicion " + codigo);
 					
 					if (procesaCarro > 1) {
 						for (x=1;x<procesaCarro;x++){
@@ -260,11 +255,10 @@
 								errorOrdenacion = true;
 							} 							
 						}
-//						alert("en posicion " + codigo);
 						if (errorOrdenacion) cambiarSeccion('pantalla4');
 					}
 				}
-//			alert("salir de procesar lectura");	
+
 			}		
 			
 			

@@ -131,7 +131,7 @@ color: rgb(2,89,73);
     background-color: #fbb700;
     text-shadow: none;
     margin-top: -5px;
-	padding-bottom:30px;
+	padding:10px 0;
 }
 .explicacion p{
     color: blue;
@@ -169,7 +169,7 @@ p.botonEscaneo, p.botonValidar, p.botonFinalizar{
 width:200px;
 color:white;
 background-color:#004996;
-margin:40px auto;
+margin:40px auto 20px auto;
 padding:10px;
 font-size:30px;
 text-shadow:none;
