@@ -184,7 +184,7 @@
 			function scan() {
 
 				var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-//				alert("Tengo paso " + pasoSincrono);
+				alert("Tengo paso " + pasoSincrono);
 				
 				scanner.scan( function (result) { 
 
@@ -211,13 +211,16 @@
 							} );	
 				
 				if (codigoLeido != -1) {
+				alert("Lectura OK");
 					procesar_lectura();
 					pasoSincrono = pasoSincrono + 1;
 					if (pasoSincrono % 2 == 0) {
 						procesaCarro = procesaCarro + 1;
 					}
 				}
-								
+				else {
+				alert("Lectura NOK");
+				}				
 				carousel_lecturas_sincrono();
 			}
 			
