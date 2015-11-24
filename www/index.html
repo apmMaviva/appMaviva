@@ -140,6 +140,8 @@
 				if (midiv == "pantalla3") {
 					pasoSincrono = 1;
 					procesaCarro = 1;
+					var tablaCarros=[];
+					var tablaPosiciones=[];					
 					errorOrdenacion = false;
 					carouselLecturasSincrono();
 				}
@@ -171,7 +173,7 @@
 			
 			function carouselLecturasSincrono() {
 				
-				alert("Encuentro " + pasoSincrono + " y " + procesaCarro);
+//				alert("Encuentro " + pasoSincrono + " y " + procesaCarro);
 				
 				if ( (pasoSincrono>2)&&(pasoSincrono%2) ) {
 					$('p.botonValidar').show();
@@ -200,7 +202,7 @@
 			function scan() {
 
 				var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-				alert("Tengo paso " + pasoSincrono);
+//				alert("Tengo paso " + pasoSincrono);
 				
 				scanner.scan( function (result) { 
 
@@ -208,7 +210,7 @@
 									alert("Lectura CANCELADA");
 								}
 								else {
-									alert("Lectura OK, " + result.text);
+//									alert("Lectura OK, " + result.text);
 									procesarLectura(result.text);
 									pasoSincrono = pasoSincrono + 1;
 									if (pasoSincrono % 2 == 0) {
@@ -236,18 +238,18 @@
 			
 			
 			function procesarLectura(codigo) {
-			alert("entra procesar lectura "+pasoSincrono);
+//			alert("entra procesar lectura "+pasoSincrono);
 				if (pasoSincrono%2) {
-				alert("procesar lectura1: " + codigo); 
+//				alert("procesar lectura1: " + codigo); 
 					var pos = codigo.indexOf('F') - 1;
-				alert("posicion lectura1: " + pos);	
+//				alert("posicion lectura1: " + pos);	
 					tablaCarros.push(codigo.substr(1,pos));
-					alert("Numero carro " + codigo.substr(1,codigo.indexOf('F') - 1));
+//					alert("Numero carro " + codigo.substr(1,codigo.indexOf('F') - 1));
 				}
 				else {
-				alert("procesar lectura2 " + codigo);
+//				alert("procesar lectura2 " + codigo);
 					tablaPosiciones.push(codigo);
-					alert("en posicion " + codigo);
+//					alert("en posicion " + codigo);
 					
 					if (procesaCarro > 1) {
 						for (x=1;x<procesaCarro;x++){
@@ -258,11 +260,11 @@
 								errorOrdenacion = true;
 							} 							
 						}
-						alert("en posicion " + codigo);
+//						alert("en posicion " + codigo);
 						if (errorOrdenacion) cambiarSeccion('pantalla4');
 					}
 				}
-			alert("salir de procesar lectura");	
+//			alert("salir de procesar lectura");	
 			}		
 			
 			
@@ -280,7 +282,7 @@
 				
 				var cadena = '<table id="resumen-carro"><tr><th>NÚMERO CARRO</th><th>POSICIÓN</th></tr>';
 				
-				for (x=0;x<procesaCarro;x++){
+				for (x=0;x<procesaCarro-1;x++){
 					cadena = cadena + '<tr><td>' + tablaCarros[x] + '</td><td>' + tablaPosiciones[x] + '</td></tr>';
 				}
 				
