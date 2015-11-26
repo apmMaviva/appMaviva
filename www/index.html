@@ -68,7 +68,7 @@
 <!-- Panel intercalado de petición de clave-->
 		<div data-role="page" id="pantallaclave" class="pantalla">
 			<div class="zona-img-libra">
-				<img class="imagen-libra2" src="img/libra.png">
+				<img class="imagen-libra2" src="img/logoentrada.png">
 			</div>	
 			<div data-role="content" class="contenidoClave">
 				<p id="nombreusuario" class="textoSolicitud">Indique su clave</p>
@@ -145,7 +145,8 @@
 
         <script type="text/javascript">
 				
-			var usuario;	
+			var usuario;
+			var clave;
 			var pasoSincrono;
 			var procesaCarro;
 			var tablaCarros=[];
@@ -169,6 +170,14 @@
 					$(".imagen-libra1").hide();
 					$(".loader2").show();
 					ValidarUsuario(usuario);
+				});
+
+				$("p#btnValidaClave").on("click",function(){ 
+					clave = $("#ClaveUsuario").val();
+					$(".contenidoClave").hide();
+					$(".imagen-libra2").hide();
+					$(".loader3").show();
+					ValidarClave(clave);
 				});
 				
 				setTimeout(function() {

@@ -73,7 +73,7 @@ ul {
 /*    background-image:url('../img/maviva.png');
 	background-size:100% 100%;*/
 }	
-.loader, .loader2 {
+.loader, .loader2, .loader3 {
 	position: relative;
 	width:150px;
 	height:150px;
@@ -83,48 +83,19 @@ ul {
 /*	display:none!important;*/
 }	
 @media screen and (min-width:500px) {
-.loader, .loader2 {margin:15% auto;font-size: 90px;width: 250px;height: 250px;};
+.loader, .loader2, .loader3 {margin:15% auto;font-size: 90px;width: 250px;height: 250px;};
 }
-.loader i, .loader2 i{
+.loader i, .loader2 i, .loader3 i {
 	width:100%;
 	text-shadow: none;
 	color: #004996;
 }
-.loader h3, .loader2 h3{
+.loader h3, .loader2 h3, .loader3 h3{
 	color: #004996;
 	text-shadow: none;
 	font-size: 30px;
 	margin-top: 0px;
 }	
-#cargando, #cargando2, #cargando3, #cargando4, #cargando5, #cargando6 {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: grey;
-  opacity: 0.95;
-}  
-.marcador-cargando {
-  margin-top: 40%;
-  text-align: center;
-  margin: 40% 20%;
-  text-align: center;
-  background-color: white;
-  padding: 5% 0;
-  border-radius: 15px; 
-color: rgb(2,89,73);  
-}
-.marcador-cargando i{
-	width:100%;
-	text-shadow: none;
-    -webkit-animation: rotating 2s linear infinite;
-    -moz-animation: rotating 2s linear infinite;
-    -ms-animation: rotating 2s linear infinite;
-    -o-animation: rotating 2s linear infinite;
-    animation: rotating 2s linear infinite;
-	font-size: 70px;
-}
 .zona-img-code1 img, .zona-img-code2 img, .zona-img-ok img, .zona-img-nok img, .zona-img-libra img {width:100%;}
 .zona-img-code1, .zona-img-code2, .zona-img-ok, .zona-img-nok, .zona-img-libra {max-height:400px; overflow:hidden;}
 .explicacion {
@@ -188,6 +159,10 @@ text-transform: uppercase;
 color: rgb(0, 73, 150);
 font-weight: bold !important;
 text-align:center;
+}
+p#nombreusuario {
+font-size:28px !important;
+color:red !important;
 }
 
 
@@ -308,3 +283,6 @@ h1.completo {width:100% !important;}
 .contenidoUser, .contenidoClave {
 background-color:#fbb700;margin-top:-5px;padding-top:40px;
 }
+#nombreusuario {
+margin-top:20px;
+margin-bottom:20px;}
