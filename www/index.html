@@ -52,7 +52,7 @@
 <!-- Panel intercalado de petición de usuario-->
 		<div data-role="page" id="pantallauser" class="pantalla">
 			<div class="zona-img-libra">
-				<img class="imagen-libra" src="img/logoentrada.png">
+				<img class="imagen-libra1" src="img/logoentrada.png">
 			</div>	
 			<div data-role="content" class="contenidoUser">
 				<p class="textoSolicitud">Indique su usuario</p>
@@ -68,9 +68,9 @@
 <!-- Panel intercalado de petición de clave-->
 		<div data-role="page" id="pantallaclave" class="pantalla">
 			<div class="zona-img-libra">
-				<img class="imagen-libra" src="img/libra.png">
+				<img class="imagen-libra2" src="img/libra.png">
 			</div>	
-			<div data-role="content" style="background-color:#fbb700;margin-top:-5px;padding-top:40px;">
+			<div data-role="content" class="contenidoClave">
 				<p id="nombreusuario" class="textoSolicitud">Indique su clave</p>
 				<p class="textoSolicitud">Indique su clave</p>
 				<input id="ClaveUsuario" name="usuario" type="text" class="">
@@ -166,6 +166,7 @@
 				$("p#btnValidaUsuario").on("click",function(){ 
 					usuario = $("#CodigoUsuario").val();
 					$(".contenidoUser").hide();
+					$(".imagen-libra1").hide();
 					$(".loader2").show();
 					ValidarUsuario(usuario);
 				});
@@ -173,12 +174,17 @@
 				setTimeout(function() {
 					$.mobile.changePage("#pantallauser", { transition: "slide", reverse: false });
 					$(".loader2").hide();
-				}, 2000);				
+				}, 3000);				
 			} 
 
 			function cambiarSeccion(midiv) {
 				$.mobile.changePage("#" + midiv, { transition: "slide", reverse: false });
 
+				if (midiv == "pantallaclave") {
+					alert("Detecto " + midiv);
+					$(".loader2").hide();
+				}
+				
 				if (midiv == "pantalla3") {
 					pasoSincrono = 1;
 					procesaCarro = 1;
@@ -348,7 +354,7 @@
 						if(respuestaServer.validacion == "OK"){
 							alert('Consulta correcta' + respuestaServer.nombre);
 							
-							$("#nombreusuario").text(respuestaServer.nombre);
+							$("p#nombreusuario").text(respuestaServer.nombre);
 							cambiarSeccion("pantallaClave");
 							/// si la validacion es correcta, muestra la pantalla "home"
 							/// $.mobile.changePage("#home")
