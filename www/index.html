@@ -163,17 +163,17 @@
 				
 				$("p.botonFinalizar").on("click",function(){ cambiarSeccionReversa('pantalla2');});
 				
-//				$("p#btnValidaUsuario").on("click",function(){ 
-//					usuario = $("#CodigoUsuario").val();
-//					$(".contenidoUser").hide();
-//					$(".imagen-libra1").hide();
-//					$(".loader2").show();
-//					ValidarUsuario(usuario);
-//				});
+				$("p#btnValidaUsuario").on("click",function(){ 
+					usuario = $("#CodigoUsuario").val();
+					$(".contenidoUser").hide();
+					$(".imagen-libra1").hide();
+					$(".loader2").show();
+					ValidarUsuario(usuario);
+				});
 				
 				setTimeout(function() {
 					$.mobile.changePage("#pantallauser", { transition: "slide", reverse: false });
-					$(".loader2").hide();
+//					$(".loader2").hide();
 				}, 3000);				
 			} 
 
