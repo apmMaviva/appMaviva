@@ -75,7 +75,7 @@
 				<p class="textoSolicitud">Indique su clave</p>
 				<input id="ClaveUsuario" name="usuario" type="text" class="">
 				<p id="btnValidaClave" class="botonValidar"><i class="fa fa-lock"></i>&nbsp;&nbsp;&nbsp;VALIDAR</p>
-				<div class="loader2">	
+				<div class="loader3">	
 					<i class="fa fa-cog fa-spin"></i>
 					<h3>CARGANDO...</h3>
 				</div>				
@@ -181,7 +181,7 @@
 				$.mobile.changePage("#" + midiv, { transition: "slide", reverse: false });
 		alert("Detecto " + midiv);
 				if (midiv == "pantallaclave") {
-					$(".loader2").hide();
+					$(".loader3").hide();
 				}
 				
 				if (midiv == "pantalla3") {
