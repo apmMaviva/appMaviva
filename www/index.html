@@ -179,9 +179,8 @@
 
 			function cambiarSeccion(midiv) {
 				$.mobile.changePage("#" + midiv, { transition: "slide", reverse: false });
-
+		alert("Detecto " + midiv);
 				if (midiv == "pantallaclave") {
-					alert("Detecto " + midiv);
 					$(".loader2").hide();
 				}
 				
@@ -217,7 +216,10 @@
 //			alert("Tengo hash: " + hash);					
 				if (hash == '#pantalla2') {
 					navigator.notification.confirm('¿Deseas salir de la aplicación?', CerrarApp, 'Maviva','SI,NO');
-				}			
+				}
+				elseif (hash == '#pantallauser') {
+					navigator.notification.confirm('¿Deseas salir de la aplicación?', CerrarApp, 'Maviva','SI,NO');
+				}						
 				else {
 					history.go(-1);
 				}	
@@ -355,7 +357,8 @@
 							alert('Consulta correcta' + respuestaServer.nombre);
 							
 							$("p#nombreusuario").text(respuestaServer.nombre);
-							cambiarSeccion("pantallaClave");
+
+							cambiarSeccion("pantallaclave");
 							/// si la validacion es correcta, muestra la pantalla "home"
 							/// $.mobile.changePage("#home")
 							
