@@ -52,7 +52,7 @@
 <!-- Panel intercalado de petición de usuario-->
 		<div data-role="page" id="pantallauser" class="pantalla">
 			<div class="zona-img-libra">
-				<img class="imagen-libra" src="img/libra.png">
+				<img class="imagen-libra" src="img/logo-entrada.png">
 			</div>	
 			<div data-role="content" style="background-color:#fbb700;margin-top:-5px;padding-top:40px;">
 				<p class="textoSolicitud">Indique su usuario</p>
@@ -163,9 +163,8 @@
 				$("p.botonFinalizar").on("click",function(){ cambiarSeccionReversa('pantalla2');});
 				
 				$("p#btnValidaUsuario").on("click",function(){ 
-					alert("Recibo usuario " + $("#CodigoUsuario").val());
 					usuario = $("#CodigoUsuario").val();
-//					ValidarUsuario(usuario);
+					ValidarUsuario(usuario);
 				});
 				
 				setTimeout(function() {
