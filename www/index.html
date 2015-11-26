@@ -341,9 +341,9 @@
 
 				$.getJSON( archivoValidacion, { funcion:funcion, param1:usuario })
 					.done(function(respuestaServer) {
-				
-						if(respuestaServer.validacion == "ok"){
-							alert('Consulta correcta' + respuestaServer.mensaje + " - " + respuestaServer.nombre);
+
+						if(respuestaServer.validacion == "OK"){
+							alert('Consulta correcta' + respuestaServer.nombre);
 							/// si la validacion es correcta, muestra la pantalla "home"
 							/// $.mobile.changePage("#home")
 /*							$( "div#reemplaza-listado" ).replaceWith
@@ -366,7 +366,7 @@
 */							
 						}else{
 						  /// ejecutar una conducta cuando la validacion falla
-							alert('Error llamada' + respuestaServer.mensaje);
+							alert('Error llamada' + respuestaServer.validacion);
 						}
 			  
 					})
