@@ -400,6 +400,33 @@
 					})
 			};	
 
+			function ValidarClave(clave) {
+		
+				var funcion = 'ValClv';
+
+				archivoValidacion = "https://intranet.grupomaviva.es/movil/appmovil.php?jsoncallback=?"
+
+				$.getJSON( archivoValidacion, { funcion:funcion, param1:usuario, param2:clave })
+				
+					.done(function(respuestaServer) {
+
+						if(respuestaServer.validacion == "OK"){
+							alert('Clave correcta');
+						
+							cambiarSeccion("pantallaclave");
+						
+						}else{
+						  /// ejecutar una conducta cuando la validacion falla
+							alert('Error llamada' + respuestaServer.validacion);
+						}
+			  
+					})
+					
+					.fail(function() {
+						alert('ERROR LLAMADA');
+					})
+			};	
+
 			
 		</script>		
 
