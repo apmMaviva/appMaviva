@@ -73,7 +73,7 @@ ul {
 /*    background-image:url('../img/maviva.png');
 	background-size:100% 100%;*/
 }	
-.loader {
+.loader, .loader2 {
 	position: relative;
 	width:150px;
 	height:150px;
@@ -83,14 +83,14 @@ ul {
 /*	display:none!important;*/
 }	
 @media screen and (min-width:500px) {
-.loader {margin:15% auto;font-size: 90px;width: 250px;height: 250px;};
+.loader, .loader2 {margin:15% auto;font-size: 90px;width: 250px;height: 250px;};
 }
-.loader i{
+.loader i, .loader2 i{
 	width:100%;
 	text-shadow: none;
 	color: #004996;
 }
-.loader h3{
+.loader h3, .loader2 h3{
 	color: #004996;
 	text-shadow: none;
 	font-size: 30px;
@@ -125,8 +125,8 @@ color: rgb(2,89,73);
     animation: rotating 2s linear infinite;
 	font-size: 70px;
 }
-.zona-img-code1 img, .zona-img-code2 img, .zona-img-ok img, .zona-img-nok img {width:100%;}
-.zona-img-code1, .zona-img-code2, .zona-img-ok, .zona-img-nok {max-height:400px; overflow:hidden;}
+.zona-img-code1 img, .zona-img-code2 img, .zona-img-ok img, .zona-img-nok img, .zona-img-libra img {width:100%;}
+.zona-img-code1, .zona-img-code2, .zona-img-ok, .zona-img-nok, .zona-img-libra {max-height:400px; overflow:hidden;}
 .explicacion {
     background-color: #fbb700;
     text-shadow: none;
@@ -165,7 +165,7 @@ border:1px dotted grey;
 /*************************
 -----   PANTALLA ESCANEO
 *************************/
-p.botonEscaneo, p.botonValidar, p.botonFinalizar{
+p.botonEscaneo, p.botonValidar, p.botonFinalizar, p.botonValidar {
 width:200px;
 color:white;
 background-color:#004996;
@@ -175,12 +175,20 @@ font-size:30px;
 text-shadow:none;
 text-align:center;
 border-radius:10px;
+box-shadow: 5px 5px 10px grey;
 }
 p.botonValidar, p.botonFinalizar{
 width:300px;
 background-color:green!important;
 }
-
+p.textoSolicitud {
+font-size:24px;
+text-shadow: none;
+text-transform: uppercase;
+color: rgb(0, 73, 150);
+font-weight: bold !important;
+text-align:center;
+}
 
 
 /*************************
@@ -295,221 +303,5 @@ border-right: 2px solid white;
 .compartir {float:right;}
 h1.completo {width:100% !important;} 
 
-/******************************************
- ************    ZONA COMPARTIR ***********
- ******************************************/
- 
-#btn-redes-sociales {
-  position: fixed;
-  top: 20%;
-  left: 20%;
-  /* height: 60%; */
-  width: 60%;
-  z-index: 9999999;
-  background-color: white;
-  border-radius: 10px;
-  padding: 20px;
-} 
-/******************************************
- ************    TABLA DEL DIRECTORIO ******
- ******************************************/
-
-#estilo-interes h3 {
-  color: #025954;
-    margin:2.5%;
-} 
-table#tabla-interes {
-  width: 95%;
-  border-spacing: 0px;
-  margin:2.5%;
-  border: 1px solid grey;
-}
-#tabla-interes tr.impar {
-  background-color: #CED8F6;
-}	
-#tabla-interes tr.par {
-  background-color: #A9A9F5;
-}
-#tabla-interes td {
-  border: 1px solid grey;
-  font-size: 14px;
-  padding-left: 8px;
-  text-shadow:none;
-}
-#tabla-interes p {
-  width:auto;
-  font-size: 14px;
-    display: inline-block;
-}  
-#estilo-interes h3 {font-size:18px;}
-.ui-checkbox  label{ font-size:14px!important;  font-weight: normal!important;min-height: 40px;}
-#listado-opciones legend { font-size:16px;}
-@media screen and (min-width:500px) {
-	#tabla-interes td { font-size: 18px; padding-left: 10px; }
-	#tabla-interes p { width:auto; font-size: 18px; }
-	#estilo-interes h3 {font-size:22px;}
-	.ui-checkbox  label{ font-size:15px!important;}
-	#listado-opciones legend { font-size:18px;}
-}
-@media screen and (min-width:850px) {
-	#tabla-interes td {    font-size: 22px; padding-left: 13px; }
-	#tabla-interes p { width:auto; font-size: 22px; }	
-	#estilo-interes h3 {font-size:26px;}
-	.ui-checkbox  label{ font-size:18px!important;}
-	#listado-opciones legend { font-size:20px;}
-}
-@media screen and (min-width:1200px) {
-	#tabla-interes td {    font-size: 26px; padding-left: 15px; }
-	#tabla-interes p { width:auto; font-size: 26px; }
-	#estilo-interes h3 {font-size:30px;}	
-	.ui-checkbox  label{ font-size:22px!important;}
-	#listado-opciones legend { font-size:24px;}
-}
 .ui-checkbox { width:32%;display:inline-block;}
-/* Start by setting display:none to make this hidden.
-   Then we position it in relation to the viewport window
-   with position:fixed. Width, height, top and left speak
-   for themselves. Background we set to 80% white with
-   our animation centered, and no-repeating */
-#transitorio {
-   background: white;
-   height: 100%;
-   width: 100%;
-   position: fixed;
-   z-index: -1000;
-   left: 0px;
-   top: 0px;
-   margin: 0px;  
-   padding-top:30%;
-   text-align:center;
-}
-.oculto {
-	display:none;
-}	
-#transitorio img {
-	width:80%;
-	max-width:300px;
-	height: auto;
-}	
-#transitorio p {
-	padding-top:10%;
-	text-align: center;
-	font-size: 35px;
-	font-weight: bold;
-}
-@media screen and (min-width:500px) {
-#transitorio img { max-width:440px; }
-#transitorio p { font-size: 50px; }
-}	
-#piepagina, #piepagina2, #piepagina3 {
-	text-align:center;
-	overflow: hidden;
-}
-#piepagina  a, #piepagina2 a, #piepagina3 a{
-  font-size: 30px;
-  line-height: 15px;
-}	
-#map_canvas, #mapageneral {
-	width: 100%;
-	height:70%;
-}
-#directionsPanel {
-	width:100%;
-	height:auto;
-}
-
-/* MAQUETADO DEL SLIDER DE LAS FOTOS */
-
-.swiper-container {
-	width: 100%;
-	height: auto;
-	margin: 20px auto;
-}
-.swiper-slide {
-	text-align: center;
-	font-size: 18px;
-	background: #fff;
-	/* Center slide text vertically */
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	-webkit-justify-content: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	-webkit-align-items: center;
-	align-items: center;
-}
-.swiper-slide img{
-	display:block;
-	width:100%;
-	height: auto;
-	padding:0px;
-}
-
-.imagen-detalle img {
-width:100%;
-}
-/* MAQUETADO DE LOS MARCADORES DEL MAPA */
-
-.tipo-marker  h1{
-	font-size:14px;
-}
-.tipo-marker  p{
-	font-size:12px;
-	  text-align: left;
-}
-
-.ui-footer a {
-color:white !important;
-text-decoration: none;
-}
-#header a.ui-link.ui-btn-left {
-display:none;
-}
-#fotos-detalle {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background-color: grey;
-  opacity: 0.95;
-  margin: 0%;
-//  border-radius: 20px;
-}
-.foto-item  i{
-float: right;
-  margin: 15px;
-  font-size: 36px;
-}
-@media screen and (min-width:500px) {
-.foto-item  i{ margin: 20px; font-size: 46px;}
-}
-@media screen and (min-width:850px) {
-.foto-item  i{ margin: 24px; font-size: 52px;}
-}
-@media screen and (min-width:1200px) {
-.foto-item  i{ margin: 28px; font-size: 60px;}
-}
-
-.swiper-container {
-  width: 94%;
-  }
-
-.banderas img {
-  height: 100px;
-  margin: 10px;
-} 
-p.leermas{
-  color: blue;
-  width: 95%;
-  text-align: right;
-  margin-top: 10px;
-}
-.embed a {
-  pointer-events: none;
-} 
+.zona-img-libra { background-color:#bbbbbb;}

@@ -49,6 +49,38 @@
 			</div>
 		</div>				
 
+<!-- Panel intercalado de petición de usuario-->
+		<div data-role="page" id="pantallauser" class="pantalla">
+			<div class="zona-img-libra">
+				<img class="imagen-libra" src="img/libra.png">
+			</div>	
+			<div data-role="content" style="background-color:#fbb700;margin-top:-5px;padding-top:40px;">
+				<p class="textoSolicitud">Indique su usuario</p>
+				<input id="CodigoUsuario" name="usuario" type="text" class="">
+				<p id="btnValidaUsuario" class="botonValidar"><i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;VALIDAR</p>
+				<div class="loader2">	
+					<i class="fa fa-cog fa-spin"></i>
+					<h3>CARGANDO...</h3>
+				</div>				
+			</div>
+		</div>			
+
+<!-- Panel intercalado de petición de clave-->
+		<div data-role="page" id="pantallaclave" class="pantalla">
+			<div class="zona-img-libra">
+				<img class="imagen-libra" src="img/libra.png">
+			</div>	
+			<div data-role="content" style="background-color:#fbb700;margin-top:-5px;padding-top:40px;">
+				<p class="textoSolicitud">Indique su clave</p>
+				<input id="ClaveUsuario" name="usuario" type="text" class="">
+				<p id="btnValidaClave" class="botonValidar"><i class="fa fa-lock"></i>&nbsp;&nbsp;&nbsp;VALIDAR</p>
+				<div class="loader2">	
+					<i class="fa fa-cog fa-spin"></i>
+					<h3>CARGANDO...</h3>
+				</div>				
+			</div>
+		</div>		
+		
 <!-- Panel de presentacion de segundo nivel-->
 		<div data-role="page" id="pantalla2" class="pantalla">
 
@@ -112,6 +144,7 @@
 
         <script type="text/javascript">
 				
+			var usuario;	
 			var pasoSincrono;
 			var procesaCarro;
 			var tablaCarros=[];
@@ -129,8 +162,15 @@
 				
 				$("p.botonFinalizar").on("click",function(){ cambiarSeccionReversa('pantalla2');});
 				
+				$("p#btnValidaUsuario").on("click",function(){ 
+					alert("Recibo usuario " + $("#ValidarUsuario").val());
+					usuario = $("#ValidarUsuario").val();
+					ValidarUsuario(usuario);
+				});
+				
 				setTimeout(function() {
-					$.mobile.changePage("#pantalla2", { transition: "slide", reverse: false });
+					$.mobile.changePage("#pantallauser", { transition: "slide", reverse: false });
+					$(".loader2").hide();
 				}, 2000);				
 			} 
 
@@ -175,9 +215,11 @@
 				}	
 			}
 			
-			function CerrarApp() {
-				navigator.app.exitApp();
-			}		
+			function CerrarApp(index) {
+				if (index == 1) {
+					navigator.app.exitApp();
+				}	
+			}
 
 			
 			function carouselLecturasSincrono() {
@@ -205,9 +247,6 @@
 				}	
 			}
 			
-			
-			
-
 			function scan() {
 
 				var scanner = cordova.require("cordova/plugin/BarcodeScanner");
@@ -245,7 +284,6 @@
 
 			}
 			
-			
 			function procesarLectura(codigo) {
 //			alert("longitudes antes " + tablaPosiciones.length + " y " + tablaCarros.length);
 				if (pasoSincrono%2) {
@@ -270,7 +308,6 @@
 //			alert("longitudes despues " + tablaPosiciones.length + " y " + tablaCarros.length);
 			}		
 			
-			
 			function procesarResultado() {
 //			alert("Resultado " + tablaPosiciones.length + " y " + tablaCarros.length);
 				if (errorOrdenacion) {
@@ -294,7 +331,52 @@
 				
 				$('.zona-tabla').replaceWith('<div class="zona-tabla">' + cadena + '</div>');
 			}
+
 			
+/***** FUNCIONES DE VALIDACION DE USUARIO Y CLAVE   ******/
+			function ValidarUsuario(usuario) {
+		
+				var funcion = 'ValUsr';
+
+				archivoValidacion = "https://intranet.grupomaviva.es/movil/appmovil.php?jsoncallback=?"
+
+				$.getJSON( archivoValidacion, { funcion:funcion, param1:usuario })
+					.done(function(respuestaServer) {
+				
+						if(respuestaServer.validacion == "ok"){
+							alert('Consulta correcta' + respuestaServer.mensaje + " - " + respuestaServer.nombre);
+							/// si la validacion es correcta, muestra la pantalla "home"
+							/// $.mobile.changePage("#home")
+/*							$( "div#reemplaza-listado" ).replaceWith
+												( '<div id="reemplaza-listado">' + respuestaServer.mensaje + '</div>');
+							
+							var titulo = null;
+	
+							
+							if (titulo) {
+								var cadena = "window.location.href='mapa.html?modo=" + titulo + "'";
+								var cabecera =  '<div data-role="header" data-theme="b" id="headerlistado" class="ui-header ui-bar-b">' +
+												'<i class="separador fa fa-chevron-left fa-2x" onclick="onBackKeyDown();"></i>' + 
+												'<h1 class="ui-title" style="width:80%;margin:0 auto;">' + titulo + '</h1>' +
+												'<i class="separador fa fa-map-marker fa-2x" onclick="' + cadena + '"></i>' +'</div>';
+								$('div#headerlistado').replaceWith(cabecera);				
+							}
+										
+							$('div#cargando').hide();	
+							$('div#piepagina').show();				
+*/							
+						}else{
+						  /// ejecutar una conducta cuando la validacion falla
+							alert('Error llamada' + respuestaServer.mensaje);
+						}
+			  
+					})
+					
+					.fail(function() {
+						alert('ERROR LLAMADA');
+					})
+			};	
+
 			
 		</script>		
 
