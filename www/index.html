@@ -65,7 +65,7 @@
 			</div>				
 		</div>			
 
-<!-- Panel intercalado de petición de clave-->
+<!-- Panel intercalado de petición de clave-- >
 		<div data-role="page" id="pantallaclave" class="pantalla">
 			<div class="zona-img-libra">
 				<img class="imagen-libra2" src="img/libra.png">
@@ -80,7 +80,7 @@
 					<h3>CARGANDO...</h3>
 				</div>				
 			</div>
-		</div>		
+		</div>		-->
 		
 <!-- Panel de presentacion de segundo nivel-->
 		<div data-role="page" id="pantalla2" class="pantalla">
@@ -163,13 +163,13 @@
 				
 				$("p.botonFinalizar").on("click",function(){ cambiarSeccionReversa('pantalla2');});
 				
-				$("p#btnValidaUsuario").on("click",function(){ 
-					usuario = $("#CodigoUsuario").val();
-					$(".contenidoUser").hide();
-					$(".imagen-libra1").hide();
-					$(".loader2").show();
-					ValidarUsuario(usuario);
-				});
+//				$("p#btnValidaUsuario").on("click",function(){ 
+//					usuario = $("#CodigoUsuario").val();
+//					$(".contenidoUser").hide();
+//					$(".imagen-libra1").hide();
+//					$(".loader2").show();
+//					ValidarUsuario(usuario);
+//				});
 				
 				setTimeout(function() {
 					$.mobile.changePage("#pantallauser", { transition: "slide", reverse: false });
