@@ -54,15 +54,15 @@
 			<div class="zona-img-libra">
 				<img class="imagen-libra" src="img/logoentrada.png">
 			</div>	
-			<div data-role="content" style="background-color:#fbb700;margin-top:-5px;padding-top:40px;">
+			<div data-role="content" class="contenidoUser">
 				<p class="textoSolicitud">Indique su usuario</p>
 				<input id="CodigoUsuario" name="usuario" type="text" class="">
 				<p id="btnValidaUsuario" class="botonValidar"><i class="fa fa-user"></i>&nbsp;&nbsp;&nbsp;VALIDAR</p>
-				<div class="loader2">	
-					<i class="fa fa-cog fa-spin"></i>
-					<h3>CARGANDO...</h3>
-				</div>				
 			</div>
+			<div class="loader2">	
+				<i class="fa fa-cog fa-spin"></i>
+				<h3>CARGANDO...</h3>
+			</div>				
 		</div>			
 
 <!-- Panel intercalado de petición de clave-->
@@ -71,6 +71,7 @@
 				<img class="imagen-libra" src="img/libra.png">
 			</div>	
 			<div data-role="content" style="background-color:#fbb700;margin-top:-5px;padding-top:40px;">
+				<p id="nombreusuario" class="textoSolicitud">Indique su clave</p>
 				<p class="textoSolicitud">Indique su clave</p>
 				<input id="ClaveUsuario" name="usuario" type="text" class="">
 				<p id="btnValidaClave" class="botonValidar"><i class="fa fa-lock"></i>&nbsp;&nbsp;&nbsp;VALIDAR</p>
@@ -164,6 +165,8 @@
 				
 				$("p#btnValidaUsuario").on("click",function(){ 
 					usuario = $("#CodigoUsuario").val();
+					$(".contenidoUser").hide();
+					$(".loader2").show();
 					ValidarUsuario(usuario);
 				});
 				
@@ -344,8 +347,12 @@
 
 						if(respuestaServer.validacion == "OK"){
 							alert('Consulta correcta' + respuestaServer.nombre);
+							
+							$("#nombreusuario").text(respuestaServer.nombre);
+							cambiarSeccion("pantallaClave");
 							/// si la validacion es correcta, muestra la pantalla "home"
 							/// $.mobile.changePage("#home")
+							
 /*							$( "div#reemplaza-listado" ).replaceWith
 												( '<div id="reemplaza-listado">' + respuestaServer.mensaje + '</div>');
 							
@@ -362,8 +369,7 @@
 							}
 										
 							$('div#cargando').hide();	
-							$('div#piepagina').show();				
-*/							
+							$('div#piepagina').show();	*/							
 						}else{
 						  /// ejecutar una conducta cuando la validacion falla
 							alert('Error llamada' + respuestaServer.validacion);

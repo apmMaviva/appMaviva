@@ -305,3 +305,6 @@ h1.completo {width:100% !important;}
 
 .ui-checkbox { width:32%;display:inline-block;}
 .zona-img-libra { background-color:#bbbbbb;}
+.contenidoUser {
+background-color:#fbb700;margin-top:-5px;padding-top:40px;
+}
