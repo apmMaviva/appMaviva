@@ -65,7 +65,7 @@
 			</div>				
 		</div>			
 
-<!-- Panel intercalado de petición de clave-- >
+<!-- Panel intercalado de petición de clave-->
 		<div data-role="page" id="pantallaclave" class="pantalla">
 			<div class="zona-img-libra">
 				<img class="imagen-libra2" src="img/libra.png">
@@ -80,7 +80,7 @@
 					<h3>CARGANDO...</h3>
 				</div>				
 			</div>
-		</div>		-->
+		</div>		
 		
 <!-- Panel de presentacion de segundo nivel-->
 		<div data-role="page" id="pantalla2" class="pantalla">
@@ -173,7 +173,7 @@
 				
 				setTimeout(function() {
 					$.mobile.changePage("#pantallauser", { transition: "slide", reverse: false });
-//					$(".loader2").hide();
+					$(".loader2").hide();
 				}, 3000);				
 			} 
 
@@ -217,7 +217,7 @@
 				if (hash == '#pantalla2') {
 					navigator.notification.confirm('¿Deseas salir de la aplicación?', CerrarApp, 'Maviva','SI,NO');
 				}
-				elseif (hash == '#pantallauser') {
+				else if (hash == '#pantallauser') {
 					navigator.notification.confirm('¿Deseas salir de la aplicación?', CerrarApp, 'Maviva','SI,NO');
 				}						
 				else {
