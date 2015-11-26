@@ -144,7 +144,23 @@
 		<!-- Transiciones de pantalla -->
 
         <script type="text/javascript">
-				
+
+			$( window ).load(function() {
+				alert("Estoy " + $( window ).height() + " y " + $(".zona-img-libra").height() + " con " + $(".contenidoUser").height());
+				var altoimagen = $(".zona-img-libra").height();
+				var altotexto = $(".contenidoUser").height();
+				var altoventana = $(window).height();
+				if (altoventana > altotexto + altoimagen) {
+					var margen = altoventana - altotexto - altoimagen;
+					$(".zona-img-libra").css("padding-top",margen/2);
+					$(".zona-img-libra").css("padding-bottom",margen/2);
+				}
+				else {
+					var margen = altoventana - altotexto - altoimagen;
+					alert("Margen " + margen);
+					$(".contenidoUser").css("margin-top",margen);
+				}
+			});	
 			var usuario;
 			var clave;
 			var pasoSincrono;
@@ -188,7 +204,23 @@
 
 			function cambiarSeccion(midiv) {
 				$.mobile.changePage("#" + midiv, { transition: "slide", reverse: false });
-		alert("Detecto " + midiv);
+
+				if (midiv == "pantallauser") {
+					var altoimagen = $(".zona-img-libra").height();
+					var altotexto = $(".contenidoUser").height();
+					var altoventana = $(window).height();
+					if (altoventana > altotexto + altoimagen) {
+						var margen = altoventana - altotexto - altoimagen;
+						$(".zona-img-libra").css("padding-top",margen/2);
+						$(".zona-img-libra").css("padding-bottom",margen/2);
+					}
+					else {
+						var margen = altoventana - altotexto - altoimagen;
+						alert("Margen " + margen);
+						$(".contenidoUser").css("margin-top",margen);
+					}
+				}				
+					
 				if (midiv == "pantallaclave") {
 					$(".loader3").hide();
 				}
