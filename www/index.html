@@ -67,7 +67,7 @@
 
 <!-- Panel intercalado de petición de clave-->
 		<div data-role="page" id="pantallaclave" class="pantalla">
-			<div class="zona-img-libra">
+			<div class="zona-img-libra2">
 				<img class="imagen-libra2" src="img/logoentrada.png">
 			</div>	
 			<div data-role="content" class="contenidoClave">
@@ -224,17 +224,17 @@
 					
 				if (midiv == "pantallaclave") {
 					$(".loader3").hide();
-					var altoimagen = $(".zona-img-libra").height();
+					var altoimagen = $(".zona-img-libra2").height();
 					var altotexto = $(".contenidoClave").height();
 					var altoventana = $(window).height();
 					if (altoventana > altotexto + altoimagen - 10) {
 						var margen = altoventana - altotexto - altoimagen - 15;
-						$(".zona-img-libra").css("padding-top",margen/2);
-						$(".zona-img-libra").css("padding-bottom",margen/2);
+						$(".zona-img-libra2").css("padding-top",margen/2);
+						$(".zona-img-libra2").css("padding-bottom",margen/2);
 					}
 					else {
 						var altoimagen = altoventana - altotexto - 15;
-						$(".zona-img-libra").css("height",altoimagen);
+						$(".zona-img-libra2").css("height",altoimagen);
 					}					
 				}
 				
