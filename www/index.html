@@ -73,7 +73,7 @@
 			<div data-role="content" class="contenidoClave">
 				<p id="nombreusuario" class="textoSolicitud">Indique su clave</p>
 				<p class="textoSolicitud">Indique su clave</p>
-				<input id="ClaveUsuario" name="usuario" type="text" class="">
+				<input id="ClaveUsuario" name="usuario" type="password" class="">
 				<p id="btnValidaClave" class="botonValidar"><i class="fa fa-lock"></i>&nbsp;&nbsp;&nbsp;VALIDAR</p>
 				<div class="loader3">	
 					<i class="fa fa-cog fa-spin"></i>
@@ -145,11 +145,12 @@
 
         <script type="text/javascript">
 
-/*			$( window ).load(function() {
+/*	PRUEBAS PARA NAVEGADOR
+			$( window ).load(function() {
 				alert("Estoy " + $( window ).height() + " y " + $(".zona-img-libra").height() + " con " + $(".contenidoUser").height());
 					$(".loader2").hide();
 					var altoimagen = $(".zona-img-libra").height();
-					var altotexto = $(".contenidoUser").height();
+					var altotexto = $(".contenidoClave").height();
 					var altoventana = $(window).height();
 					if (altoventana > altotexto + altoimagen - 10) {
 						var margen = altoventana - altotexto - altoimagen - 15;
@@ -223,6 +224,18 @@
 					
 				if (midiv == "pantallaclave") {
 					$(".loader3").hide();
+					var altoimagen = $(".zona-img-libra").height();
+					var altotexto = $(".contenidoClave").height();
+					var altoventana = $(window).height();
+					if (altoventana > altotexto + altoimagen - 10) {
+						var margen = altoventana - altotexto - altoimagen - 15;
+						$(".zona-img-libra").css("padding-top",margen/2);
+						$(".zona-img-libra").css("padding-bottom",margen/2);
+					}
+					else {
+						var altoimagen = altoventana - altotexto - 15;
+						$(".zona-img-libra").css("height",altoimagen);
+					}					
 				}
 				
 				if (midiv == "pantalla3") {
@@ -260,7 +273,10 @@
 				}
 				else if (hash == '#pantallauser') {
 					navigator.notification.confirm('¿Deseas salir de la aplicación?', CerrarApp, 'Maviva','SI,NO');
-				}						
+				}
+				else if (hash == '#pantallaclave') {
+					cambiarSeccionReversa('pantallauser');
+				}				
 				else {
 					history.go(-1);
 				}	
@@ -395,32 +411,21 @@
 					.done(function(respuestaServer) {
 
 						if(respuestaServer.validacion == "OK"){
-							alert('Consulta correcta' + respuestaServer.nombre);
-							
+
 							$("p#nombreusuario").text(respuestaServer.nombre);
 
 							cambiarSeccion("pantallaclave");
-							/// si la validacion es correcta, muestra la pantalla "home"
-							/// $.mobile.changePage("#home")
-							
-/*							$( "div#reemplaza-listado" ).replaceWith
-												( '<div id="reemplaza-listado">' + respuestaServer.mensaje + '</div>');
-							
-							var titulo = null;
-	
-							
-							if (titulo) {
-								var cadena = "window.location.href='mapa.html?modo=" + titulo + "'";
-								var cabecera =  '<div data-role="header" data-theme="b" id="headerlistado" class="ui-header ui-bar-b">' +
-												'<i class="separador fa fa-chevron-left fa-2x" onclick="onBackKeyDown();"></i>' + 
-												'<h1 class="ui-title" style="width:80%;margin:0 auto;">' + titulo + '</h1>' +
-												'<i class="separador fa fa-map-marker fa-2x" onclick="' + cadena + '"></i>' +'</div>';
-								$('div#headerlistado').replaceWith(cabecera);				
+						}	
+						else if(respuestaServer.validacion == "NOK"){
+							if (respuestaServer.nombre == 'DESCONOCIDO') {
+								alert('USUARIO NO RECONOCIDO');	
 							}
-										
-							$('div#cargando').hide();	
-							$('div#piepagina').show();	*/							
-						}else{
+							else {
+								alert('ERROR DE COMUNICACION');	
+							}
+							cambiarSeccion("pantallauser");
+						}	
+						else{
 						  /// ejecutar una conducta cuando la validacion falla
 							alert('Error llamada' + respuestaServer.validacion);
 						}
