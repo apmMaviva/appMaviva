@@ -116,6 +116,24 @@ overflow: hidden!important;
     padding: 8px 15px;
 	font-weight:bold;
 }
+@media screen and (max-width:500px) {
+.estilo-boton-principal p, .estilo-boton-principal i { font-size:30px;padding-left:10px;padding: 18px 2px!important;}
+}
+@media screen and (min-width:500px) {
+.explicacion {padding:15px 10px;}
+.explicacion p { font-size:32px; }
+.estilo-boton-principal p, .estilo-boton-principal i { font-size:38px;padding-left:12px;padding: 26px 4px!important;}
+}
+@media screen and (min-width:850px) {
+.explicacion {padding:30px 20px;}
+.explicacion p { font-size:36px;margin-top:10px; }
+.estilo-boton-principal p, .estilo-boton-principal i { font-size:46px;padding-left:15px;padding: 38px 6px!important;}
+}
+@media screen and (min-width:1200px) {
+.explicacion {padding:50px 30px;}
+.explicacion-texto p { font-size:40px;margin-top:14px; }
+.estilo-boton-principal p, .estilo-boton-principal i { font-size:52px;padding-left:25px;padding: 50px 10px!important;}
+}
 table#resumen-carro {
 width:80%;
 margin-left:10%;
@@ -133,8 +151,7 @@ border:1px dotted grey;
 #menu-principal{ padding:0px;  overflow:hidden!important;}
 .boton-entrada { width:100%;display:inline-block;}
 .boton-entrada  img{ width:100%;  margin-bottom: -5px;}
-.estilo-boton-principal { padding: 18px 2px;}
-.estilo-boton-principal p, .estilo-boton-principal i { display: inline-block; font-size:40px;padding-left:15px;}
+.estilo-boton-principal p, .estilo-boton-principal i { display: inline-block;vertical-align: top;}
 .estilo-boton-principal p {font-family: Calibri;line-height:35px;}
 
 /*************************
@@ -198,18 +215,6 @@ display:inline-block;
 }
 .imagen-mostrar-item img {
 width:100%;
-}
-@media screen and (min-width:500px) {
-.explicacion {padding:15px 10px;}
-.explicacion p { font-size:32px; }
-}
-@media screen and (min-width:850px) {
-.explicacion {padding:30px 20px;}
-.explicacion p { font-size:36px;margin-top:10px; }
-}
-@media screen and (min-width:1200px) {
-.explicacion {padding:50px 30px;}
-.explicacion-texto p { font-size:40px;margin-top:14px; }
 }
 .detalle-item {
 padding:5px;
