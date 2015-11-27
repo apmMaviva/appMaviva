@@ -75,11 +75,11 @@
 				<p class="textoSolicitud">Indique su clave</p>
 				<input id="ClaveUsuario" name="usuario" type="password" class="">
 				<p id="btnValidaClave" class="botonValidar"><i class="fa fa-lock"></i>&nbsp;&nbsp;&nbsp;VALIDAR</p>
-				<div class="loader3">	
-					<i class="fa fa-cog fa-spin"></i>
-					<h3>CARGANDO...</h3>
-				</div>				
 			</div>
+			<div class="loader3">	
+				<i class="fa fa-cog fa-spin"></i>
+				<h3>CARGANDO...</h3>
+			</div>				
 		</div>		
 		
 <!-- Panel de presentacion de segundo nivel-->
@@ -261,7 +261,7 @@
 					tablaPosiciones=[];					
 					errorOrdenacion = false;
 				}
-				if (midiv == "pantalla2") {
+				if (midiv == "pantallauser") {
 					$(".contenidoUser").show();
 					$(".zona-img-libra").show();
 					$(".loader2").hide();
@@ -445,7 +445,7 @@
 			function ValidarClave(laclave) {
 		
 				var funcion = 'ValClv';
-		alert('Clave tecleada: ' + laclave)
+//		alert('Datos: ' + usuario + ' - ' + laclave);
 				archivoValidacion = "https://intranet.grupomaviva.es/movil/appmovil.php?jsoncallback=?"
 
 				$.getJSON( archivoValidacion, { funcion:funcion, param1:usuario, param2:laclave })
