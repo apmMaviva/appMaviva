@@ -185,7 +185,7 @@
 				$("p#btnValidaUsuario").on("click",function(){ 
 					usuario = $("#CodigoUsuario").val();
 					$(".contenidoUser").hide();
-					$(".imagen-libra1").hide();
+					$(".zona-img-libra").hide();
 					$(".loader2").show();
 					ValidarUsuario(usuario);
 				});
@@ -193,7 +193,7 @@
 				$("p#btnValidaClave").on("click",function(){ 
 					clave = $("#ClaveUsuario").val();
 					$(".contenidoClave").hide();
-					$(".imagen-libra2").hide();
+					$(".zona-img-libra2").hide();
 					$(".loader3").show();
 					ValidarClave(clave);
 				});
@@ -448,11 +448,13 @@
 					.done(function(respuestaServer) {
 
 						if(respuestaServer.validacion == "OK"){
-							alert('Clave correcta');
-						
 							cambiarSeccion("pantalla2");
-						
-						}else{
+						}
+						else if(respuestaServer.validacion == "NOK"){
+							$("p#nombreusuario").text("CLAVE INCORRECTA");
+							cambiarSeccion("pantallaclave");
+						}
+						else{
 						  /// ejecutar una conducta cuando la validacion falla
 							alert('Error llamada' + respuestaServer.validacion);
 						}
