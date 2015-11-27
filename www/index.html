@@ -191,11 +191,10 @@
 				});
 
 				$("p#btnValidaClave").on("click",function(){ 
-					clave = $("#ClaveUsuario").val();
 					$(".contenidoClave").hide();
 					$(".zona-img-libra2").hide();
 					$(".loader3").show();
-					ValidarClave(clave);
+					ValidarClave($("#ClaveUsuario").val());
 				});
 				
 				setTimeout(function() {
@@ -262,7 +261,11 @@
 					tablaPosiciones=[];					
 					errorOrdenacion = false;
 				}
-				
+				if (midiv == "pantalla2") {
+					$(".contenidoUser").show();
+					$(".zona-img-libra").show();
+					$(".loader2").hide();
+				}			
 			}
 			
 			function onBackKeyDown() {
@@ -439,13 +442,13 @@
 					})
 			};	
 
-			function ValidarClave(clave) {
+			function ValidarClave(laclave) {
 		
 				var funcion = 'ValClv';
-
+		alert('Clave tecleada: ' + laclave)
 				archivoValidacion = "https://intranet.grupomaviva.es/movil/appmovil.php?jsoncallback=?"
 
-				$.getJSON( archivoValidacion, { funcion:funcion, param1:usuario, param2:clave })
+				$.getJSON( archivoValidacion, { funcion:funcion, param1:usuario, param2:laclave })
 				
 					.done(function(respuestaServer) {
 
