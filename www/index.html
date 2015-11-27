@@ -147,20 +147,23 @@
 
 /*	PRUEBAS PARA NAVEGADOR
 			$( window ).load(function() {
-				alert("Estoy " + $( window ).height() + " y " + $(".zona-img-libra").height() + " con " + $(".contenidoUser").height());
-					$(".loader2").hide();
-					var altoimagen = $(".zona-img-libra").height();
-					var altotexto = $(".contenidoClave").height();
+				alert("Estoy " + $( window ).height() + " y " + $(".zona-img-code1").height() + " con " + $(".explicacion").height());
+//					$(".loader2").hide();
+					$(".zona-img-code2").hide();
+					$('p.botonValidar').show();
+					var altoimagen = $(".zona-img-code1").height();
+					var altotexto = $(".explicacion").height();
 					var altoventana = $(window).height();
-					if (altoventana > altotexto + altoimagen - 10) {
+					var cabecera = $("#header").height();
+					if (altoventana > altotexto + altoimagen + cabecera - 10) {
 						var margen = altoventana - altotexto - altoimagen - 15;
-						$(".zona-img-libra").css("padding-top",margen/2);
-						$(".zona-img-libra").css("padding-bottom",margen/2);
+						$(".explicacion").css("padding-top",margen/2);
+						$(".explicacion").css("padding-bottom",margen/2);
 					}
 					else {
-						var altoimagen = altoventana - altotexto - 15;
+						var altoimagen = altoventana - altotexto - cabecera - 15;
 						alert("altoimagen " + altoimagen);
-						$(".zona-img-libra").css("height",altoimagen);
+						$(".zona-img-code1").css("height",altoimagen);
 					}
 			});*/
 			var usuario;
@@ -308,13 +311,34 @@
 					$('p.explicacion-texto').text('A continuación escanee el código que figura en el LISTADO DE CARRO.');
 					$('.zona-img-code1').show();
 					$('.zona-img-code2').hide();
+					var altoimagen = $(".zona-img-code1").height();
 				}
 				else {
 					$('#pantalla3 h1').text('CARRO ' + procesaCarro + ": POSICIÓN");
 					$('p.explicacion-texto').text('A continuación escanee el código de posición.');
 					$('.zona-img-code2').show();
-					$('.zona-img-code1').hide();					
+					$('.zona-img-code1').hide();	
+					var altoimagen = $(".zona-img-code2").height();					
 				}	
+				
+				var cabecera = $("#header").height();
+				var altotexto = $(".explicacion").height();
+				var altoventana = $(window).height();
+				if (altoventana > altotexto + altoimagen + cabecera - 10) {
+					var margen = altoventana - altotexto - altoimagen - 15;
+					$(".explicacion").css("padding-top",margen/2);
+					$(".explicacion").css("padding-bottom",margen/2);
+				}
+				else {
+					var altoimagen = altoventana - altotexto - cabecera - 15;
+					alert("altoimagen " + altoimagen);
+					if (pasoSincrono%2) {
+						$(".zona-img-code1").css("height",altoimagen);
+					}
+					else {
+						$(".zona-img-code2").css("height",altoimagen);
+					}						
+				}				
 			}
 			
 			function scan() {
