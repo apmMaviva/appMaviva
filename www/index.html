@@ -175,7 +175,7 @@
 			
 			function onDeviceReady() {
 //				alert(window.innerWidth + ' x ' + window.innerHeight);
-
+		
 				$("p.botonEscaneo").on("click",function(){ scan();});
 				
 				$("p.botonFinalizar").on("click",function(){ cambiarSeccionReversa('pantalla2');});
@@ -197,7 +197,7 @@
 				});
 				
 				setTimeout(function() {
-					$.mobile.changePage("#pantallauser", { transition: "slide", reverse: false });
+					cambiarSeccion("pantallauser");
 				}, 3000);				
 			} 
 
