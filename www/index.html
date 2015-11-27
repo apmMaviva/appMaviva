@@ -147,20 +147,21 @@
 
 /*			$( window ).load(function() {
 				alert("Estoy " + $( window ).height() + " y " + $(".zona-img-libra").height() + " con " + $(".contenidoUser").height());
-				var altoimagen = $(".zona-img-libra").height();
-				var altotexto = $(".contenidoUser").height();
-				var altoventana = $(window).height();
-				if (altoventana > altotexto + altoimagen) {
-					var margen = altoventana - altotexto - altoimagen;
-					$(".zona-img-libra").css("padding-top",margen/2);
-					$(".zona-img-libra").css("padding-bottom",margen/2);
-				}
-				else {
-					var margen = altoventana - altotexto - altoimagen;
-					alert("Margen " + margen);
-					$(".contenidoUser").css("margin-top",margen);
-				}
-			});*/	
+					$(".loader2").hide();
+					var altoimagen = $(".zona-img-libra").height();
+					var altotexto = $(".contenidoUser").height();
+					var altoventana = $(window).height();
+					if (altoventana > altotexto + altoimagen - 10) {
+						var margen = altoventana - altotexto - altoimagen - 15;
+						$(".zona-img-libra").css("padding-top",margen/2);
+						$(".zona-img-libra").css("padding-bottom",margen/2);
+					}
+					else {
+						var altoimagen = altoventana - altotexto - 15;
+						alert("altoimagen " + altoimagen);
+						$(".zona-img-libra").css("height",altoimagen);
+					}
+			});*/
 			var usuario;
 			var clave;
 			var pasoSincrono;
@@ -209,15 +210,14 @@
 					var altoimagen = $(".zona-img-libra").height();
 					var altotexto = $(".contenidoUser").height();
 					var altoventana = $(window).height();
-					if (altoventana > altotexto + altoimagen) {
-						var margen = altoventana - altotexto - altoimagen;
+					if (altoventana > altotexto + altoimagen - 10) {
+						var margen = altoventana - altotexto - altoimagen - 15;
 						$(".zona-img-libra").css("padding-top",margen/2);
 						$(".zona-img-libra").css("padding-bottom",margen/2);
 					}
 					else {
-						var margen = altoventana - altotexto - altoimagen;
-						alert("Margen " + margen);
-						$(".contenidoUser").css("margin-top",margen);
+						var altoimagen = altoventana - altotexto - 15;
+						$(".zona-img-libra").css("height",altoimagen);
 					}
 				}				
 					

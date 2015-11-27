@@ -70,6 +70,7 @@ ul {
 *************************/
 .pantalla{
 background-color:white;
+overflow: hidden!important;
 }
 #pantalla1 {
 	height:100%;
@@ -289,3 +290,6 @@ background-color:#fbb700;margin-top:-5px;padding-top:40px;
 #nombreusuario {
 margin-top:20px;
 margin-bottom:20px;}
+input#CodigoUsuario{
+text-transform: uppercase;
+}
