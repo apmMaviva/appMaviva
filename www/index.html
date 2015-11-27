@@ -198,7 +198,6 @@
 				
 				setTimeout(function() {
 					$.mobile.changePage("#pantallauser", { transition: "slide", reverse: false });
-					$(".loader2").hide();
 				}, 3000);				
 			} 
 
@@ -206,6 +205,7 @@
 				$.mobile.changePage("#" + midiv, { transition: "slide", reverse: false });
 
 				if (midiv == "pantallauser") {
+					$(".loader2").hide();
 					var altoimagen = $(".zona-img-libra").height();
 					var altotexto = $(".contenidoUser").height();
 					var altoventana = $(window).height();
