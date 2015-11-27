@@ -423,7 +423,9 @@
 							else {
 								alert('ERROR DE COMUNICACION');	
 							}
-							cambiarSeccion("pantallauser");
+							$(".contenidoUser").show();
+							$(".zona-img-libra").show();
+							$(".loader2").hide();
 						}	
 						else{
 						  /// ejecutar una conducta cuando la validacion falla
@@ -452,7 +454,9 @@
 						}
 						else if(respuestaServer.validacion == "NOK"){
 							$("p#nombreusuario").text("CLAVE INCORRECTA");
-							cambiarSeccion("pantallaclave");
+							$(".contenidoClave").show();
+							$(".zona-img-libra2").show();
+							$(".loader3").hide();
 						}
 						else{
 						  /// ejecutar una conducta cuando la validacion falla
