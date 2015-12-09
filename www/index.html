@@ -227,7 +227,7 @@
 				if (midiv == "pantallaclave") {
 					$(".loader3").hide();
 					var altoimagen = $(".zona-img-libra2").height();
-					var altotexto = $(".explicacion").height();
+					var altotexto = $(".contenidoClave").height();
 					var altoventana = $(window).height();
 					if (altoventana > altotexto + altoimagen - 10) {
 						var margen = altoventana - altotexto - altoimagen - 15;
@@ -249,7 +249,7 @@
 					carouselLecturasSincrono();
 					
 					var altoimagen = $(".zona-img-code1").height() + $(".zona-img-code2").height();
-					var altotexto = $(".contenidoClave").height();
+					var altotexto = $(".explicacion").height();
 					var altoventana = $(window).height();
 				alert("alturas " + altoventana + " y " + altotexto + " - " + altoimagen);	
 					if (altoventana > altotexto + altoimagen - 10) {
