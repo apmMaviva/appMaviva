@@ -344,7 +344,12 @@
 //					}		
 					var margen = altoventana - altotexto - altoimagen - cabecera - botonValidar;
 					alert("Pongo margen " + margen);		
-					$(".explicacion").css("margin-top",margen);
+					if (pasoSincrono%2) {					
+						$('.zona-img-code1').css('height',$('.zona-img-code1').height() - margen);
+					}
+					else {
+						$('.zona-img-code2').css('height',$('.zona-img-code1').height() - margen);
+					}
 					$(".explicacion").css("padding-top",5);
 					$(".explicacion").css("padding-bottom",5);					
 				}				
