@@ -135,7 +135,7 @@
 				<div class="explicacion">
 					<p class="explicacion-error">CARRO SINCRONO PRESENTADO DE FORMA CORRECTA</p>
 					<div class="zona-tabla"></div>
-					<p class="botonFinalizar">FINALIZAR</p>
+					<p class="botonFinalizar">ENVIAR</p>
 				</div>
 			</div>
 
@@ -331,6 +331,7 @@
 					var margen = altoventana - altotexto - altoimagen - cabecera + botonValidar;
 					$(".explicacion").css("padding-top",margen/2);
 					$(".explicacion").css("padding-bottom",margen/2);
+					$(".explicacion").css("margin-top","-5px");
 				}
 				else {
 //					var nuevoaltoimagen = altoventana - altotexto - cabecera;
@@ -344,6 +345,8 @@
 					var margen = altoventana - altotexto - altoimagen - cabecera - botonValidar;
 					alert("Pongo margen " + margen);		
 					$(".explicacion").css("margin-top",margen);
+					$(".explicacion").css("padding-top",5);
+					$(".explicacion").css("padding-bottom",5);					
 				}				
 			}
 			
@@ -414,13 +417,13 @@
 					$('.zona-img-nok').show();
 					$('.zona-img-ok').hide();
 					var altoimagen = $('.zona-img-nok').height();
-					$('p.explicacion-error').text('Se han detectado errores en la presentación del carro.');
+					$('p.explicacion-error').text('HAY ERRORES EN LA PRESENTACIÓN DEL CARRO');
 				}
 				else {
 					$('.zona-img-nok').hide();
 					$('.zona-img-ok').show();		
 					var altoimagen = $('.zona-img-ok').height();					
-					$('p.explicacion-error').text('La ordenación del carro es correcta.');
+					$('p.explicacion-error').text('ORDENACIÓN DE CARRO CORRECTA');
 				}
 				
 				var cadena = '<table id="resumen-carro"><tr><th>NÚMERO CARRO</th><th>POSICIÓN</th></tr>';
@@ -438,20 +441,25 @@
 				var altotexto = $(".explicacion").height();
 				var altoventana = $(window).height();
 			alert("Tengo4 " + altoventana + " - " + altotexto + " - " + altoimagen + " - " + cabecera);	
-				if (altoventana > altotexto + altoimagen + cabecera - 10) {
-					var margen = altoventana - altotexto - altoimagen - cabecera - 15;
+				if (altoventana > altotexto + altoimagen + cabecera +50) {
+					var margen = altoventana - altotexto - altoimagen - cabecera - 50;
 					$(".explicacion").css("padding-top",margen/2);
 					$(".explicacion").css("padding-bottom",margen/2);
 				}
 				else {
-					var altoimagen = altoventana - altotexto - cabecera - 15;
-					alert("altoimagen " + altoimagen);
-					if (pasoSincrono%2) {
-						$(".zona-img-code1").css("height",altoimagen);
-					}
-					else {
-						$(".zona-img-code2").css("height",altoimagen);
-					}						
+//					var altoimagen = altoventana - altotexto - cabecera - 15;
+//					alert("altoimagen " + altoimagen);
+//					if (pasoSincrono%2) {
+//						$(".zona-img-code1").css("height",altoimagen);
+//					}
+//					else {
+//						$(".zona-img-code2").css("height",altoimagen);
+//					}
+					var margen = altoventana - altotexto - altoimagen - cabecera - 50;
+					alert("Pongo margen " + margen);		
+					$(".explicacion").css("margin-top",margen);
+					$(".explicacion").css("padding-top",5);
+					$(".explicacion").css("padding-bottom",5);							
 				}
 				
 			}
