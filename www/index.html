@@ -444,15 +444,17 @@
 				
 				$('.zona-tabla').replaceWith('<div class="zona-tabla">' + cadena + '</div>');
 				
-
+				$(".explicacion4").css("padding-top",5);
+				$(".explicacion4").css("padding-bottom",5);	
+					
 				var cabecera = $("#header4").height();
-				var altotexto = $(".explicacion").height();
+				var altotexto = $(".explicacion4").height();
 				var altoventana = $(window).height();
 			alert("Tengo4 " + altoventana + " - " + altotexto + " - " + altoimagen + " - " + cabecera);	
 				if (altoventana > altotexto + altoimagen + cabecera) {
 					var margen = altoventana - altotexto - altoimagen - cabecera;
-					$(".explicacion").css("padding-top",margen/2);
-					$(".explicacion").css("padding-bottom",margen/2);
+					$(".explicacion4").css("padding-top",margen/2);
+					$(".explicacion4").css("padding-bottom",margen/2);
 					$('.zona-img-nok').css('height','auto');
 					$('.zona-img-ok').css('height','auto');
 				}
@@ -467,8 +469,6 @@
 //					}
 					var margen = altoventana - altotexto - altoimagen - cabecera;
 					alert("Pongo margen " + margen);		
-					$(".explicacion").css("padding-top",5);
-					$(".explicacion").css("padding-bottom",5);	
 					
 					if (errorOrdenacion) {					
 						$('.zona-img-nok').css('height',altoimagen + margen);
