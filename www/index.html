@@ -326,7 +326,7 @@
 				var altoventana = $(window).height();
 			alert("Tengo2 " + altoventana + " - " + altotexto + " - " + altoimagen + " - " + cabecera);	
 				if (altoventana > altotexto + altoimagen + cabecera - 10) {
-					var margen = altoventana - altotexto - altoimagen - 15;
+					var margen = altoventana - altotexto - altoimagen - cabecera - 10;
 					$(".explicacion").css("padding-top",margen/2);
 					$(".explicacion").css("padding-bottom",margen/2);
 				}
