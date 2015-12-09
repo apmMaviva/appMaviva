@@ -247,20 +247,6 @@
 					tablaPosiciones=[];					
 					errorOrdenacion = false;
 					carouselLecturasSincrono();
-					
-					var altoimagen = $(".zona-img-code1").height() + $(".zona-img-code2").height();
-					var altotexto = $(".explicacion").height();
-					var altoventana = $(window).height();
-				alert("alturas " + altoventana + " y " + altotexto + " - " + altoimagen);	
-					if (altoventana > altotexto + altoimagen - 10) {
-						var margen = altoventana - altotexto - altoimagen - 15;
-						$(".zona-img-code1").css("padding-top",margen/2);
-						$(".zona-img-code1").css("padding-bottom",margen/2);
-					}
-					else {
-						var altoimagen = altoventana - altotexto - 15;
-						$(".zona-img-code1").css("height",altoimagen);
-					}						
 				}
 				
 				if (midiv == "pantalla4") {
@@ -338,6 +324,7 @@
 				var cabecera = $("#header").height();
 				var altotexto = $(".explicacion").height();
 				var altoventana = $(window).height();
+			alert("Tengo2 " + altoventana + " - " + altotexto + " - " + altoimagen + " - " + cabecera);	
 				if (altoventana > altotexto + altoimagen + cabecera - 10) {
 					var margen = altoventana - altotexto - altoimagen - 15;
 					$(".explicacion").css("padding-top",margen/2);
