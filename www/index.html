@@ -301,9 +301,11 @@
 				
 				if ( (pasoSincrono>2)&&(pasoSincrono%2) ) {
 					$('p.botonValidar').show();
+					var botonValidar = 60;
 				}
 				else {
 					$('p.botonValidar').hide();
+					var botonValidar = 0;
 				}
 				
 				if (pasoSincrono%2) {
@@ -324,9 +326,9 @@
 				var cabecera = $("#header").height();
 				var altotexto = $(".explicacion").height();
 				var altoventana = $(window).height();
-			alert("Tengo2 " + altoventana + " - " + altotexto + " - " + altoimagen + " - " + cabecera);	
-				if (altoventana > altotexto + altoimagen + cabecera - 10) {
-					var margen = altoventana - altotexto - altoimagen - cabecera;
+			alert("Tengo2 " + altoventana + " - " + altotexto + " - " + altoimagen + " - " + botonValidar + " - " + cabecera);	
+				if (altoventana > altotexto + altoimagen + cabecera + botonValidar - 10) {
+					var margen = altoventana - altotexto - altoimagen - cabecera + botonValidar;
 					$(".explicacion").css("padding-top",margen/2);
 					$(".explicacion").css("padding-bottom",margen/2);
 				}
@@ -339,7 +341,7 @@
 //					else {
 //						$(".zona-img-code2").css("height",nuevoaltoimagen);
 //					}		
-					var margen = altoventana - altotexto - altoimagen - cabecera;
+					var margen = altoventana - altotexto - altoimagen - cabecera - botonValidar;
 					alert("Pongo margen " + margen);		
 					$(".explicacion").css("margin-top",margen);
 				}				
