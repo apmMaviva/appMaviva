@@ -417,7 +417,7 @@
 					$('.zona-img-nok').show();
 					$('.zona-img-ok').hide();
 					var altoimagen = $('.zona-img-nok').height();
-					$('p.explicacion-error').text('HAY ERRORES EN LA PRESENTACIÓN DEL CARRO');
+					$('p.explicacion-error').text('ERROR EN ORDENACIÓN DE CARROS');
 				}
 				else {
 					$('.zona-img-nok').hide();
@@ -445,6 +445,8 @@
 					var margen = altoventana - altotexto - altoimagen - cabecera - 50;
 					$(".explicacion").css("padding-top",margen/2);
 					$(".explicacion").css("padding-bottom",margen/2);
+					$('.zona-img-nok').css('height','auto');
+					$('.zona-img-ok').css('height','auto');
 				}
 				else {
 //					var altoimagen = altoventana - altotexto - cabecera - 15;
@@ -457,9 +459,15 @@
 //					}
 					var margen = altoventana - altotexto - altoimagen - cabecera - 50;
 					alert("Pongo margen " + margen);		
-					$(".explicacion").css("margin-top",margen);
 					$(".explicacion").css("padding-top",5);
-					$(".explicacion").css("padding-bottom",5);							
+					$(".explicacion").css("padding-bottom",5);	
+					
+					if (errorOrdenacion) {					
+						$('.zona-img-nok').css('height',$('.zona-img-nok').height() - margen);
+					}
+					else {
+						$('.zona-img-ok').css('height',$('.zona-img-ok').height() - margen);
+					}
 				}
 				
 			}
