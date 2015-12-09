@@ -85,7 +85,7 @@
 <!-- Panel de presentacion de segundo nivel-->
 		<div data-role="page" id="pantalla2" class="pantalla">
 
-			<div data-role="header" data-theme="b" id="header">
+			<div data-role="header" data-theme="b" id="header2">
 				<h1 class="completo" id="titulo-principal">MAVIVA</h1>
 			</div>
 			
@@ -98,7 +98,7 @@
 <!-- Panel de presentacion de tercer nivel: SINCRONOS-->
 		<div data-role="page" id="pantalla3" class="pantalla">
 
-			<div data-role="header" data-theme="b" id="header">
+			<div data-role="header" data-theme="b" id="header3">
 				<h1 class="completo" id="titulo-principal">ESCANEAR CODIGO</h1>
 			</div>
 			
@@ -109,7 +109,7 @@
 				<div class="zona-img-code2">	
 					<img class="imagen-code2" src="img/codigo2.jpg">
 				</div>	
-				<div class="explicacion">
+				<div class="explicacion3 explicacion">
 					<p class="explicacion-texto">A continuaci&oacute;n debe escanear el c&oacute;digo del carro...</p>
 					<p class="botonEscaneo">ESCANEAR</p>
 					<p class="botonValidar" onclick="cambiarSeccion('pantalla4');">FINALIZAR</p>
@@ -121,7 +121,7 @@
 <!-- Panel de presentacion de resultados -->
 		<div data-role="page" id="pantalla4" class="pantalla correcto">
 
-			<div data-role="header" data-theme="b" id="header">
+			<div data-role="header" data-theme="b" id="header4">
 				<h1 class="completo" id="titulo-principal">RESULTADO</h1>
 			</div>
 			
@@ -132,7 +132,7 @@
 				<div class="zona-img-nok">	
 					<img class="imagen-codeNOK" src="img/codigo-nok.jpg">
 				</div>					
-				<div class="explicacion">
+				<div class="explicacion4 explicacion">
 					<p class="explicacion-error">CARRO SINCRONO PRESENTADO DE FORMA CORRECTA</p>
 					<div class="zona-tabla"></div>
 					<p class="botonFinalizar">ENVIAR</p>
@@ -323,15 +323,19 @@
 					var altoimagen = $(".zona-img-code2").height();					
 				}	
 				
-				var cabecera = $("#header").height();
-				var altotexto = $(".explicacion").height();
+				$(".explicacion3").css("padding-top",5);
+				$(".explicacion3").css("padding-bottom",5);
+				
+				var cabecera = $("#header3").height();
+				var altotexto = $(".explicacion3").height();
 				var altoventana = $(window).height();
 			alert("Tengo2 " + altoventana + " - " + altotexto + " - " + altoimagen + " - " + botonValidar + " - " + cabecera);	
 				if (altoventana > altotexto + altoimagen + cabecera + botonValidar - 10) {
 					var margen = altoventana - altotexto - altoimagen - cabecera - botonValidar;
-					$(".explicacion").css("padding-top",margen/2);
-					$(".explicacion").css("padding-bottom",margen/2);
-					$(".explicacion").css("margin-top","-5px");
+					if (margen>5){
+						$(".explicacion3").css("padding-top",margen/2);
+						$(".explicacion3").css("padding-bottom",margen/2);
+					}	
 				}
 				else {
 //					var nuevoaltoimagen = altoventana - altotexto - cabecera;
@@ -350,8 +354,7 @@
 					else {
 						$('.zona-img-code2').css('height',altoimagen + margen);
 					}
-					$(".explicacion").css("padding-top",5);
-					$(".explicacion").css("padding-bottom",5);					
+				
 				}				
 			}
 			
@@ -442,7 +445,7 @@
 				$('.zona-tabla').replaceWith('<div class="zona-tabla">' + cadena + '</div>');
 				
 
-				var cabecera = $("#header").height();
+				var cabecera = $("#header4").height();
 				var altotexto = $(".explicacion").height();
 				var altoventana = $(window).height();
 			alert("Tengo4 " + altoventana + " - " + altotexto + " - " + altoimagen + " - " + cabecera);	
