@@ -345,10 +345,10 @@
 					var margen = altoventana - altotexto - altoimagen - cabecera - botonValidar;
 					alert("Pongo margen " + margen);		
 					if (pasoSincrono%2) {					
-						$('.zona-img-code1').css('height',altoimagen - margen);
+						$('.zona-img-code1').css('height',altoimagen + margen);
 					}
 					else {
-						$('.zona-img-code2').css('height',altoimagen - margen);
+						$('.zona-img-code2').css('height',altoimagen + margen);
 					}
 					$(".explicacion").css("padding-top",5);
 					$(".explicacion").css("padding-bottom",5);					
@@ -468,10 +468,10 @@
 					$(".explicacion").css("padding-bottom",5);	
 					
 					if (errorOrdenacion) {					
-						$('.zona-img-nok').css('height',altoimagen - margen);
+						$('.zona-img-nok').css('height',altoimagen + margen);
 					}
 					else {
-						$('.zona-img-ok').css('height',altoimagen - margen);
+						$('.zona-img-ok').css('height',altoimagen + margen);
 					}
 				}
 				
