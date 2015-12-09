@@ -326,19 +326,22 @@
 				var altoventana = $(window).height();
 			alert("Tengo2 " + altoventana + " - " + altotexto + " - " + altoimagen + " - " + cabecera);	
 				if (altoventana > altotexto + altoimagen + cabecera - 10) {
-					var margen = altoventana - altotexto - altoimagen - cabecera - 15;
+					var margen = altoventana - altotexto - altoimagen - cabecera;
 					$(".explicacion").css("padding-top",margen/2);
 					$(".explicacion").css("padding-bottom",margen/2);
 				}
 				else {
-					var nuevoaltoimagen = altoventana - altotexto - cabecera - 15;
-					alert("nuevoaltoimagen " + nuevoaltoimagen);
-					if (pasoSincrono%2) {
-						$(".zona-img-code1").css("height",nuevoaltoimagen);
-					}
-					else {
-						$(".zona-img-code2").css("height",nuevoaltoimagen);
-					}						
+//					var nuevoaltoimagen = altoventana - altotexto - cabecera;
+//					alert("nuevoaltoimagen " + nuevoaltoimagen);
+//					if (pasoSincrono%2) {
+//						$(".zona-img-code1").css("height",nuevoaltoimagen);
+//					}
+//					else {
+//						$(".zona-img-code2").css("height",nuevoaltoimagen);
+//					}		
+					var margen = altoventana - altotexto - altoimagen - cabecera;
+					alert("Pongo margen " + margen);		
+					$(".explicacion").css("margin-top",margen);
 				}				
 			}
 			
