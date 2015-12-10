@@ -425,12 +425,14 @@
 				if (errorOrdenacion) {
 					$('.zona-img-nok').show();
 					$('.zona-img-ok').hide();
+					$("p.botonFinalizar").hide();
 					var altoimagen = $('.zona-img-nok').height();
 					$('p.explicacion-error').text('ERROR EN ORDENACIÓN DE CARROS');
 				}
 				else {
 					$('.zona-img-nok').hide();
 					$('.zona-img-ok').show();		
+					$("p.botonFinalizar").show();
 					var altoimagen = $('.zona-img-ok').height();					
 					$('p.explicacion-error').text('ORDENACIÓN DE CARRO CORRECTA');
 				}
