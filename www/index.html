@@ -437,6 +437,7 @@
 				
 				var cadena = '<table id="resumen-carro"><tr><th>NÚMERO CARRO</th><th>POSICIÓN</th></tr>';
 				
+				cadenaTransmitir = '';
 				for (x=0;x<tablaCarros.length;x++){
 					cadena = cadena + '<tr><td>' + tablaCarros[x] + '</td><td>' + tablaPosiciones[x] + '</td></tr>';
 					cadenaTransmitir = cadenaTransmitir + tablaCarros[x] + ";" + tablaPosiciones[x] + "@"; 
@@ -564,7 +565,13 @@
 					.done(function(respuestaServer) {
 
 						if(respuestaServer.validacion == "OK"){
-							alert("Recibido OK");
+							alert("RESULTADO ENVIADO CORRECTAMENTE");
+
+							var tablaCarros=[];
+							var tablaPosiciones=[];
+							var errorOrdenacion = false;
+							var cadenaTransmitir = '';							
+							cambiarSeccion("pantalla2");							
 						}
 						else if(respuestaServer.validacion == "NOK"){
 							alert('Error NOK' + respuestaServer.validacion);
