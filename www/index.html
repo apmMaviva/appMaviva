@@ -173,6 +173,7 @@
 			var tablaCarros=[];
 			var tablaPosiciones=[];
 			var errorOrdenacion = false;
+			var cadenaTransmitir;
 				
 			document.addEventListener("deviceready", onDeviceReady, false);
 				
@@ -183,7 +184,7 @@
 		
 				$("p.botonEscaneo").on("click",function(){ scan();});
 				
-//				$("p.botonFinalizar").on("click",function(){ cambiarSeccionReversa('pantalla2');});
+				$("p.botonFinalizar").on("click",function(){ enviaResultados();});
 				
 				$("p#btnValidaUsuario").on("click",function(){ 
 					usuario = $("#CodigoUsuario").val();
@@ -329,7 +330,7 @@
 				var cabecera = $("#header3").height();
 				var altotexto = $(".explicacion3").height();
 				var altoventana = $(window).height();
-			alert("Tengo2 " + altoventana + " - " + altotexto + " - " + altoimagen + " - " + botonValidar + " - " + cabecera);	
+//	*		alert("Tengo2 " + altoventana + " - " + altotexto + " - " + altoimagen + " - " + botonValidar + " - " + cabecera);	
 				if (altoventana > altotexto + altoimagen + cabecera + botonValidar - 10) {
 					var margen = altoventana - altotexto - altoimagen - cabecera - botonValidar;
 					if (margen>5){
@@ -347,7 +348,7 @@
 //						$(".zona-img-code2").css("height",nuevoaltoimagen);
 //					}		
 					var margen = altoventana - altotexto - altoimagen - cabecera - botonValidar;
-					alert("Pongo margen " + margen);		
+//	*				alert("Pongo margen " + margen);		
 					if (pasoSincrono%2) {					
 						$('.zona-img-code1').css('height',altoimagen + margen);
 					}
@@ -438,6 +439,7 @@
 				
 				for (x=0;x<tablaCarros.length;x++){
 					cadena = cadena + '<tr><td>' + tablaCarros[x] + '</td><td>' + tablaPosiciones[x] + '</td></tr>';
+					cadenaTransmitir = cadenaTransmitir + tablaCarros[x] + ";" + tablaPosiciones[x] + "@"; 
 				}
 				
 				cadena = cadena + '</table>';
@@ -450,7 +452,7 @@
 				var cabecera = $("#header4").height();
 				var altotexto = $(".explicacion4").height();
 				var altoventana = $(window).height();
-			alert("Tengo4 " + altoventana + " - " + altotexto + " - " + altoimagen + " - " + cabecera);	
+//	*		alert("Tengo4 " + altoventana + " - " + altotexto + " - " + altoimagen + " - " + cabecera);	
 				if (altoventana > altotexto + altoimagen + cabecera) {
 					var margen = altoventana - altotexto - altoimagen - cabecera;
 					$(".explicacion4").css("padding-top",margen/2);
@@ -468,7 +470,7 @@
 //						$(".zona-img-code2").css("height",altoimagen);
 //					}
 					var margen = altoventana - altotexto - altoimagen - cabecera;
-					alert("Pongo margen " + margen);		
+//	*				alert("Pongo margen " + margen);		
 					
 					if (errorOrdenacion) {					
 						$('.zona-img-nok').css('height',altoimagen + margen);
@@ -538,6 +540,34 @@
 							$(".contenidoClave").show();
 							$(".zona-img-libra2").show();
 							$(".loader3").hide();
+						}
+						else{
+						  /// ejecutar una conducta cuando la validacion falla
+							alert('Error llamada' + respuestaServer.validacion);
+						}
+			  
+					})
+					
+					.fail(function() {
+						alert('ERROR LLAMADA');
+					})
+			};	
+
+			function enviaResultados() {
+		
+				var funcion = 'Resultado';
+//		alert('Datos: ' + usuario + ' - ' + laclave);
+				archivoValidacion = "https://intranet.grupomaviva.es/movil/appmovil.php?jsoncallback=?"
+
+				$.getJSON( archivoValidacion, { funcion:funcion, param1:usuario, param2:cadenaTransmitir })
+				
+					.done(function(respuestaServer) {
+
+						if(respuestaServer.validacion == "OK"){
+							alert("Recibido OK");
+						}
+						else if(respuestaServer.validacion == "NOK"){
+							alert('Error NOK' + respuestaServer.validacion);
 						}
 						else{
 						  /// ejecutar una conducta cuando la validacion falla
